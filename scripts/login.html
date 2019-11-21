@@ -40,18 +40,20 @@
       <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
-            apiKey: "AIzaSyASulrPQ9ArR_YHQLSHeIrzsdLHrWuXP8s",
-            authDomain: "oct31-8b1ec.firebaseapp.com",
-            databaseURL: "https://oct31-8b1ec.firebaseio.com",
-            projectId: "oct31-8b1ec",
-            storageBucket: "oct31-8b1ec.appspot.com",
-            messagingSenderId: "1036773466171",
-            appId: "1:1036773466171:web:b7b4b293fa9ecfb4bfbc1e",
-            measurementId: "G-3RM9F4RZLZ"
+              apiKey: "AIzaSyCWFoAHHXig43bLV6OG367BqhOPBlqrh4Q",
+              authDomain: "oct31-72990.firebaseapp.com",
+              databaseURL: "https://oct31-72990.firebaseio.com",
+              projectId: "oct31-72990",
+              storageBucket: "oct31-72990.appspot.com",
+              messagingSenderId: "617005703861",
+              appId: "1:617005703861:web:fdb1920a07d1b6338854fc",
+              measurementId: "G-6T24W0NH6V"
+          
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
+        var db = firebase.firestore();
     </script>
 
   
@@ -109,10 +111,25 @@
         var uiConfig = {
             callbacks: {
                 signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                  console.log(authResult);
+                  var user = authResult.user;
+                  var name, email, uid;
+                  if(user != null){
+                    name = user.displayName;
+                    email = user.email;
+                    uid = user.uid;
+                    db.doc(`users/${uid}`).set({
+                    username:name,
+                    useremail:email,
+                    useruid:uid
+                      
+                })
+                  }
+                return true;
                     // User successfully signed in.
                     // Return type determines whether we continue the redirect automatically
                     // or whether we leave that to developer to handle.
-                    return true;
+
                 },
                 uiShown: function () {
                     // The widget is rendered.
@@ -140,13 +157,9 @@
 
         // The start method will wait until the DOM is loaded.
         ui.start('#firebaseui-auth-container', uiConfig);
-    </script>
-  
+    </script> 
   
   </div>
-  
-  
-  
   <footer>
   
   
@@ -154,7 +167,4 @@
 
   
   </body>
-
-
-
 </html>
