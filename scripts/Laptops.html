@@ -55,6 +55,7 @@
             firebase.initializeApp(firebaseConfig);
             // firebase.analytics();
             var db = firebase.firestore();
+            
     </script>
 
 </head>
@@ -74,9 +75,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#">User Recommendation Questionnaire</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Compare/Contrast</a>
-        </li>
+
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -89,29 +88,31 @@
 
 
 
-    <div class="card">
-      <div class="card-body">
-        <p id="card1"></p>
-      </div>
-      <img id = "imgcard1" class = "card_images" src="" >
-      <div class="card-body">
-        <p id="card_price1"></p>
-      </div>
-    </div>
-
-
 
   
     <script>
-      db.collection('items').doc("A1001").onSnapshot(function(snap){
-            console.log ("current data is ...",snap.data());
-            document.getElementById("card1").innerHTML = snap.data().model;
-            document.getElementById("imgcard1").src = snap.data().image;
-            document.getElementById("card_price1").innerHTML = snap.data().price;
+      db.collection("laptops").get().then(function(querySnapshot){
+            querySnapshot.forEach(function(doc) {
+        
+            $(document).ready(function(){
+              $("body").append('<div class="card" id="display1">');
+              $("#display1").append('<div class="card-body" id="display2">');
+              $("#display2").append('<p id="card1">');
+              $("#display1").append('<img id = "imgcard1" class = "card_images" src="" >');
+              $("#display1").append('<div class="card-body" id="display3">');
+              $("#display3").append('<p id="card_price1">');
+              document.getElementById("card1").innerHTML = doc.data().model;
+              document.getElementById("imgcard1").src = doc.data().image;
+              document.getElementById("card_price1").innerHTML = doc.data().price;
+              $("body").append('<br>');
+              console.log(doc.id, " => ", doc.data());
+            })
+         });   
       });
+
   </script>
   <script>
-    var style1 = {"width":"200px","height":"100px"};
+          var style1 = {"width":"200px","height":"100px"};
         $(".card_images").css(style1);
   </script>
 

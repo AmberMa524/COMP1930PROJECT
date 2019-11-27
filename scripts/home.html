@@ -10,7 +10,8 @@
   
     <meta name="comp1930 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
-  
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Bootstrap for Mobile-first -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -56,7 +57,22 @@
         // firebase.analytics();
         var db = firebase.firestore();
     </script>
-       
+  <style>
+    #questionaire{
+      width:500px;
+      height:300px;
+      left:33%;
+      text-align: center;
+    }
+    #fo{
+      position: relative;
+      top:50%;
+    }
+    @media only screen and (max-width: 650px){
+      #questionaire{left:0%}
+    }
+  
+  </style> 
   
   </head>
 
@@ -65,7 +81,7 @@
   <header>
   
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">TechAssist</a>
+  <a class="navbar-brand" href="home.html">TechAssist</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -73,13 +89,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#"><button type="button" class="btn btn-primary btn-lg">Home</button><span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">User Recommendation Questionnaire</a>
+        <a id ="question" class="nav-link" href="questionnaire.html"><button type="button" class="btn btn-primary btn-lg">Menu</button></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Compare/Contrast</a>
+        <a class="nav-link" href="menu.html"><button type="button" class="btn btn-primary btn-lg">Let us help you</button></a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -90,50 +106,60 @@
 </nav>
   
   </header>
-  
-  <div align="center" padding-top="50px">
+  <br><h3>Category</h3><br>
+    <form id = "ccformid" class = "ccclass" >
+    <div class="card-deck">
+      <div class="card" >
+        <a class="laptop_list" href="Laptops.html">
+          <div class="card-body">
+            <h4 class="card-title">Laptops</h4>
+            <img class = "ccthumbnails" src = "laptop.jpg" height = "50px" width="50px">
+          </div>
+        </a>
+      </div>
+  <div class="card">
+    <a class="tablet_list" href="#">
+      <div class="card-body">
+        <h4 class="card-title">Tablets</h4>
+        <img class = "ccthumbnails" src = "tablets.jpg" height = "50px" width="50px">
+      </div>
+    </a>
+  </div>
+  <div class="card">
+    <a class = desktop_list href = "#">
+      <div class="card-body">
+        <h4 class="card-title">Desktops</h4>
+        <img class = "ccthumbnails" src = "desktop.png" height = "50px" width="50px">
+      </div>
+    </a>
+  </div>
+</div>
+
+  </form>
     
- <h4 class="daily-Deal">Daily Deals</h4>
+<br><br>
+ 
+  
+  
+<div class="card" id = "questionaire">
+  <img class="card-img" src="questionaire.jpg" alt="Card image">
+  <div class="card-img-overlay">
+    <button type="button" class="btn btn-dark" id="fo">
+    <p class="card-text">Let us assist you in finding the right product.</p>
+      </button>
+  </div>
+</div>
     
           
     
 
     
   
-  
-  </div>
-  
-  <div class="card" align="center">
-  <div class="card-body">
-    <img class="img-thumbnail" src="https://images-na.ssl-images-amazon.com/images/I/71jiUKyF%2B5L._SL1500_.jpg" alt="Thumbnail image" width="300px" height="300px">
-    <h4 class="card-title">IPad Mini</h4>
-    <h6 class="card-subtitle mb-2 text-muted">$40</h6>
-    <p class="card-text">
-      Has an 8" screen, 600Mb of memory, and six cameras.
-      <br> Cheapest listing is available on Amazon.
-    </p>
-    <a href="#!" class="card-link">More Information</a>
-    <a href="#!" class="card-link">Buy it Now</a>
-  </div>
-</div>
-  
-    <div class="card" align="center">
-  <div class="card-body">
-    <img class="img-thumbnail" src="https://images-na.ssl-images-amazon.com/images/I/612OuMs29eL._SL1200_.jpg" alt="Thumbnail image" width="300px" height="300px">
-    <h4 class="card-title">Microsoft SurfacePro</h4>
-    <h6 class="card-subtitle mb-2 text-muted">$90</h6>
-    <p class="card-text">
-      Has an 8" screen, 900Mb of memory, and it folds out into a laptop.
-      <br> Cheapest listing is available on Ebay.
-    </p>
-    <a href="#!" class="card-link">More Information</a>
-    <a href="#!" class="card-link">Buy it Now</a>
-  </div>
-</div>
-  
-  
-  
 
+ 
+  
+  
+        
 
   </body>
 
