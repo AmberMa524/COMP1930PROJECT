@@ -4,14 +4,13 @@
 
 <head>
   
-  <title> TEMP NAME </title>
+  <title> TEMP NAME Login </title>
   
   <meta charset="uf-8">
   
     <meta name="comp1930 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
-    
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  
     <!-- Bootstrap for Mobile-first -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -23,8 +22,6 @@
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
   
-<<<<<<< HEAD
-=======
       <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
 
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
@@ -51,40 +48,23 @@
               messagingSenderId: "617005703861",
               appId: "1:617005703861:web:fdb1920a07d1b6338854fc",
               measurementId: "G-6T24W0NH6V"
+          
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
-        // Initialize Firebase
-        // firebase.analytics();
         var db = firebase.firestore();
     </script>
-  <style>
-    #questionaire{
-      width:500px;
-      height:300px;
-      left:33%;
-      text-align: center;
-    }
-    #fo{
-      position: relative;
-      top:50%;
-    }
-    @media only screen and (max-width: 650px){
-      #questionaire{left:0%}
-    }
+
   
-  </style> 
-  
->>>>>>> 6b82069a8cd4d5a3edc4e4a78176656580782b25
   </head>
 
 <body>
   
   <header>
   
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="home.html">TechAssist</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">TechAssist</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -92,24 +72,16 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-<<<<<<< HEAD
-        <a class="nav-link" href="#"><button type="button" class="btn btn-primary btn-lg">Home</button><span class="sr-only">(current)</span></a>
-=======
-        <a class="nav-link disabled" href="home.html">Home <span class="sr-only">(current)</span></a>
->>>>>>> b61aa2d01a56ea8d4f1a99f9cdcb4e59a1039c8d
+        <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a id ="question" class="nav-link" href="questionnaire.html"><button type="button" class="btn btn-primary btn-lg">Menu</button></a>
+        <a class="nav-link" href="#">User Recommendation Questionnaire</a>
       </li>
       <li class="nav-item">
-<<<<<<< HEAD
-        <a class="nav-link" href="menu.html"><button type="button" class="btn btn-primary btn-lg">Let us help you</button></a>
-=======
         <a class="nav-link" href="compare.html">Compare/Contrast</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login.html">Login/Sign Up</a>
->>>>>>> b61aa2d01a56ea8d4f1a99f9cdcb4e59a1039c8d
+        <a class="nav-link" href="#">Login/Sign Up</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -118,82 +90,81 @@
     </form>
   </div>
 </nav>
-  
+    
   </header>
-<<<<<<< HEAD
-  <br><h3>Category</h3><br>
-    <form id = "ccformid" class = "ccclass" >
-    <div class="card-deck">
-      <div class="card" >
-        <a class="laptop_list" href="Laptops.html">
-          <div class="card-body">
-            <h4 class="card-title">Laptops</h4>
-            <img class = "ccthumbnails" src = "laptop.jpg" height = "50px" width="50px">
-          </div>
-        </a>
-      </div>
-  <div class="card">
-    <a class="tablet_list" href="#">
-      <div class="card-body">
-        <h4 class="card-title">Tablets</h4>
-        <img class = "ccthumbnails" src = "tablets.jpg" height = "50px" width="50px">
-      </div>
-    </a>
-=======
   
-  <div align="center" padding-top="50px">
+  <div align="center" padding-top="100px">
     
- <h4 class="daily-Deal">Daily Deals</h4>
-<<<<<<< HEAD
-=======
+    <div>
     
-          
+    <h2> Login/Sign Up </h2>
     
+    </div>
+    
+          <div id="firebaseui-auth-container"></div>
+    <div id="loader">Loading...</div>
 
-    
+    <script>
+        // Initialize the FirebaseUI Widget using Firebase.
+        var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+        var uiConfig = {
+            callbacks: {
+                signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+                  console.log(authResult);
+                  var user = authResult.user;
+                  var name, email, uid;
+                  if(user != null){
+                    name = user.displayName;
+                    email = user.email;
+                    uid = user.uid;
+                    db.collection("users").doc(uid).set({
+                    username:name,
+                    useremail:email,
+                    useruid:uid
+                      
+                })
+                  }
+                return true;
+                    // User successfully signed in.
+                    // Return type determines whether we continue the redirect automatically
+                    // or whether we leave that to developer to handle.
+
+                },
+                uiShown: function () {
+                    // The widget is rendered.
+                    // Hide the loader.
+                    document.getElementById('loader').style.display = 'none';
+                }
+            },
+            // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+            signInFlow: 'popup',
+            signInSuccessUrl: 'home.html',
+            signInOptions: [
+                // Leave the lines as is for the providers you want to offer your users.
+                //  firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+                //  firebase.auth.FacebookAuthProvider.PROVIDER_ID,
+                //  firebase.auth.TwitterAuthProvider.PROVIDER_ID,
+                //  firebase.auth.GithubAuthProvider.PROVIDER_ID,
+                firebase.auth.EmailAuthProvider.PROVIDER_ID,
+                //  firebase.auth.PhoneAuthProvider.PROVIDER_ID
+            ],
+            // Terms of service url.
+            tosUrl: 'home.html',
+            // Privacy policy url.
+            privacyPolicyUrl: '<home.html>'
+        };
+
+        // The start method will wait until the DOM is loaded.
+        ui.start('#firebaseui-auth-container', uiConfig);
+    </script> 
   
->>>>>>> 6b82069a8cd4d5a3edc4e4a78176656580782b25
-  
->>>>>>> b61aa2d01a56ea8d4f1a99f9cdcb4e59a1039c8d
   </div>
-  <div class="card">
-    <a class = desktop_list href = "#">
-      <div class="card-body">
-        <h4 class="card-title">Desktops</h4>
-        <img class = "ccthumbnails" src = "desktop.png" height = "50px" width="50px">
-      </div>
-    </a>
-  </div>
-</div>
+  <footer>
+  
+  
+  </footer>
 
-  </form>
-    
-<br><br>
- 
   
-  
-<div class="card" id = "questionaire">
-  <img class="card-img" src="questionaire.jpg" alt="Card image">
-  <div class="card-img-overlay">
-    <button type="button" class="btn btn-dark" id="fo">
-    <p class="card-text">Let us assist you in finding the right product.</p>
-      </button>
-  </div>
-</div>
-    
-          
-    
-
-    
-  
-
- 
-  
-  
-        
-
   </body>
-
-
-
 </html>

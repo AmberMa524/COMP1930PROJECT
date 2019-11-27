@@ -4,7 +4,7 @@
 
 <head>
   
-  <title> TEMP NAME Login </title>
+  <title> TEMP NAME </title>
   
   <meta charset="uf-8">
   
@@ -40,20 +40,18 @@
       <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
-              apiKey: "AIzaSyCWFoAHHXig43bLV6OG367BqhOPBlqrh4Q",
-              authDomain: "oct31-72990.firebaseapp.com",
-              databaseURL: "https://oct31-72990.firebaseio.com",
-              projectId: "oct31-72990",
-              storageBucket: "oct31-72990.appspot.com",
-              messagingSenderId: "617005703861",
-              appId: "1:617005703861:web:fdb1920a07d1b6338854fc",
-              measurementId: "G-6T24W0NH6V"
-          
+            apiKey: "AIzaSyASulrPQ9ArR_YHQLSHeIrzsdLHrWuXP8s",
+            authDomain: "oct31-8b1ec.firebaseapp.com",
+            databaseURL: "https://oct31-8b1ec.firebaseio.com",
+            projectId: "oct31-8b1ec",
+            storageBucket: "oct31-8b1ec.appspot.com",
+            messagingSenderId: "1036773466171",
+            appId: "1:1036773466171:web:b7b4b293fa9ecfb4bfbc1e",
+            measurementId: "G-3RM9F4RZLZ"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
-        var db = firebase.firestore();
     </script>
 
   
@@ -63,7 +61,7 @@
   
   <header>
   
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">TechAssist</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -72,16 +70,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">User Recommendation Questionnaire</a>
       </li>
       <li class="nav-item">
         <a class="nav-link disabled" href="#">Compare/Contrast</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Login/Sign Up</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -90,20 +85,17 @@
     </form>
   </div>
 </nav>
-    
+  
   </header>
   
-  <div align="center" padding-top="100px">
+  <div align="center" padding-top="50px">
     
-    <div>
-    
-    <h2> Login/Sign Up </h2>
-    
-    </div>
+ <h4 class="daily-Deal">Daily Deals</h4>
     
           <div id="firebaseui-auth-container"></div>
-    <div id="loader">Loading...</div>
+<!--    <div id="loader">Loading...</div>-->
 
+<!--
     <script>
         // Initialize the FirebaseUI Widget using Firebase.
         var ui = new firebaseui.auth.AuthUI(firebase.auth());
@@ -111,25 +103,10 @@
         var uiConfig = {
             callbacks: {
                 signInSuccessWithAuthResult: function (authResult, redirectUrl) {
-                  console.log(authResult);
-                  var user = authResult.user;
-                  var name, email, uid;
-                  if(user != null){
-                    name = user.displayName;
-                    email = user.email;
-                    uid = user.uid;
-                    db.collection("users").doc(uid).set({
-                    username:name,
-                    useremail:email,
-                    useruid:uid
-                      
-                })
-                  }
-                return true;
                     // User successfully signed in.
                     // Return type determines whether we continue the redirect automatically
                     // or whether we leave that to developer to handle.
-
+                    return true;
                 },
                 uiShown: function () {
                     // The widget is rendered.
@@ -139,7 +116,7 @@
             },
             // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
             signInFlow: 'popup',
-            signInSuccessUrl: 'home.html',
+            signInSuccessUrl: 'main.html',
             signInOptions: [
                 // Leave the lines as is for the providers you want to offer your users.
                 //  firebase.auth.GoogleAuthProvider.PROVIDER_ID,
@@ -150,27 +127,41 @@
                 //  firebase.auth.PhoneAuthProvider.PROVIDER_ID
             ],
             // Terms of service url.
-            tosUrl: 'home.html',
+            tosUrl: 'main.html',
             // Privacy policy url.
-            privacyPolicyUrl: '<home.html>'
+            privacyPolicyUrl: '<main.html>'
         };
 
         // The start method will wait until the DOM is loaded.
         ui.start('#firebaseui-auth-container', uiConfig);
-    </script> 
+    </script>
   
+-->
   </div>
   
-  
+  <div class="card" align="center">
+  <div class="card-body">
+    <img class="img-thumbnail" src="dellxps.jpg" alt="Thumbnail image" width="300px" height="300px">
+    <h4 class="card-title">Dell XPS 13</h4>
+    <h6 class="card-subtitle mb-2 text-muted">Price: $1300</h6>
+<!--    <p class="card-text">-->
+        <ul style="text-align: left">
+     <li>13" screen display</li>
+     <li>8 GB RAM</li>
+     <li>operating system = windows10</li>
+     <li>256GB flash_memory_solid_state</li>
+     <li>minimum 90 days warranty</li>
+     <li>Intel UHD Graphics 620</li>
+
+        </ul>
+<!--    </p>-->
+      <button type="button" class="btn btn-link">View reviews</button>
+  </div>
+<!--            <input type="button" value="View reviews">-->
+
+</div>
   
   <footer>
-  
-  
   </footer>
-
-  
   </body>
-
-
-
 </html>
