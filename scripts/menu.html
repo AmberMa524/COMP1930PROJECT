@@ -1,32 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="utf-8">
-    <title>My BCIT Project</title>
+  
+  <title> Compare and Contrast </title>
+  
+  <meta charset="uf-8">
+  
     <meta name="comp1930 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
-
+  
+  
     <!-- Bootstrap for Mobile-first -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
     <!-- Optional styles and scripts of your own -->
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
+  
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
 
@@ -39,7 +35,7 @@
 
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-        <script>
+      <script>
             // Your web app's Firebase configuration
             var firebaseConfig = {
               apiKey: "AIzaSyCWFoAHHXig43bLV6OG367BqhOPBlqrh4Q",
@@ -55,9 +51,8 @@
             firebase.initializeApp(firebaseConfig);
             // firebase.analytics();
             var db = firebase.firestore();
-            
     </script>
-
+  
 </head>
 
 <body>
@@ -75,7 +70,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#">User Recommendation Questionnaire</a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Compare/Contrast</a>
+        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -84,54 +81,42 @@
     </div>
   </nav>
   
-<h4> Laptops </h4>
-
-
-
-
-
-    <div class="card">
-      <div class="card-body">
-        <p id="card1"></p>
-      </div>
-        <a href="productlisting.html">
-      <img id = "imgcard1" class = "card_images" src="" >
-            </a>
-      <div class="card-body">
-        <p id="card_price1"></p>
-      </div>
-    </div>
-
-
-
-
+  <br><br>
   
-    <script>
-      db.collection("laptops").get().then(function(querySnapshot){
-            querySnapshot.forEach(function(doc) {
-        
-            $(document).ready(function(){
-              $("body").append('<div class="card" id="display1">');
-              $("#display1").append('<div class="card-body" id="display2">');
-              $("#display2").append('<p id="card1">');
-              $("#display1").append('<img id = "imgcard1" class = "card_images" src="" >');
-              $("#display1").append('<div class="card-body" id="display3">');
-              $("#display3").append('<p id="card_price1">');
-              document.getElementById("card1").innerHTML = doc.data().model;
-              document.getElementById("imgcard1").src = doc.data().image;
-              document.getElementById("card_price1").innerHTML = doc.data().price;
-              $("body").append('<br>');
-              console.log(doc.id, " => ", doc.data());
-            })
-         });   
-      });
+  <form id = "ccformid" class = "ccclass" >
+    <div class="card-deck">
+      <div class="card" >
+        <a class="laptop_list" href="Laptops.html">
+          <div class="card-body">
+            <h4 class="card-title">Laptops</h4>
+            <img class = "ccthumbnails" src = "laptop.jpg" height = "50px" width="50px">
+          </div>
+        </a>
+      </div>
+  <div class="card">
+    <a class="tablet_list" href="#">
+      <div class="card-body">
+        <h4 class="card-title">Tablets</h4>
+        <img class = "ccthumbnails" src = "tablets.jpg" height = "50px" width="50px">
+      </div>
+    </a>
+  </div>
+  <div class="card">
+    <a class = desktop_list href = "#">
+      <div class="card-body">
+        <h4 class="card-title">Desktops</h4>
+        <img class = "ccthumbnails" src = "desktop.png" height = "50px" width="50px">
+      </div>
+    </a>
+  </div>
+</div>
 
-  </script>
-  <script>
-          var style1 = {"width":"200px","height":"100px"};
-        $(".card_images").css(style1);
-  </script>
+  </form>
+  
+
 
 </body>
+
+
 
 </html>

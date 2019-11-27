@@ -75,7 +75,9 @@
         <li class="nav-item">
           <a class="nav-link" href="#">User Recommendation Questionnaire</a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Compare/Contrast</a>
+        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -85,23 +87,9 @@
   </nav>
   
 <h4> Laptops </h4>
-
-
-
-
-
-    <div class="card">
-      <div class="card-body">
-        <p id="card1"></p>
-      </div>
-        <a href="productlisting.html">
-      <img id = "imgcard1" class = "card_images" src="" >
-            </a>
-      <div class="card-body">
-        <p id="card_price1"></p>
-      </div>
-    </div>
-
+<ul class = "listed">
+  
+</ul>
 
 
 
@@ -111,8 +99,11 @@
             querySnapshot.forEach(function(doc) {
         
             $(document).ready(function(){
-              $("body").append('<div class="card" id="display1">');
-              $("#display1").append('<div class="card-body" id="display2">');
+              var x = '<li id=' + doc.id + '>'; 
+              x += '<div class="card-body" id=' + doc.id + '1' + '>';
+              x += 
+              //$("body").append('<div class="card" id="display1">');
+              //$("#display1").append('<div class="card-body" id="display2">');
               $("#display2").append('<p id="card1">');
               $("#display1").append('<img id = "imgcard1" class = "card_images" src="" >');
               $("#display1").append('<div class="card-body" id="display3">');

@@ -118,7 +118,7 @@
                     name = user.displayName;
                     email = user.email;
                     uid = user.uid;
-                    db.doc(`users/${uid}`).set({
+                    db.collection("users").doc(uid).set({
                     username:name,
                     useremail:email,
                     useruid:uid
