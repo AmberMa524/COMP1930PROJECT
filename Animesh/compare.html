@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  
+  <title> Compare and Contrast </title>
+  
+  <meta charset="uf-8">
+  
+    <meta name="comp1930 boilerplate code" content="my bcit project">
+    <meta name="author" content="BCIT">
+  
+  
+    <!-- Bootstrap for Mobile-first -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Optional styles and scripts of your own -->
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/script.js"></script>
+  
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+      <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+              apiKey: "AIzaSyCWFoAHHXig43bLV6OG367BqhOPBlqrh4Q",
+              authDomain: "oct31-72990.firebaseapp.com",
+              databaseURL: "https://oct31-72990.firebaseio.com",
+              projectId: "oct31-72990",
+              storageBucket: "oct31-72990.appspot.com",
+              messagingSenderId: "617005703861",
+              appId: "1:617005703861:web:fdb1920a07d1b6338854fc",
+              measurementId: "G-6T24W0NH6V"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            // firebase.analytics();
+            var db = firebase.firestore();
+    </script>
+  
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">techAssist</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">User Recommendation Questionnaire</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Compare/Contrast</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  
+  <br><br>
+  
+  <form id = "ccformid" class = "ccclass" >
+    <div class="card-deck">
+      <div class="card" >
+        <a class="laptop_list" href="Laptops.html">
+          <div class="card-body">
+            <h4 class="card-title">Laptops</h4>
+            <img class = "ccthumbnails" src = "laptop.jpg" height = "50px" width="50px">
+          </div>
+        </a>
+      </div>
+  <div class="card">
+    <a class="tablet_list" href="#">
+      <div class="card-body">
+        <h4 class="card-title">Tablets</h4>
+        <img class = "ccthumbnails" src = "tablets.jpg" height = "50px" width="50px">
+      </div>
+    </a>
+  </div>
+  <div class="card">
+    <a class = desktop_list href = "#">
+      <div class="card-body">
+        <h4 class="card-title">Desktops</h4>
+        <img class = "ccthumbnails" src = "desktop.png" height = "50px" width="50px">
+      </div>
+    </a>
+  </div>
+</div>
+
+  </form>
+  
+
+
+</body>
+
+
+
+</html>
