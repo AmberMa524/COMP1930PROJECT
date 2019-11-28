@@ -8,12 +8,11 @@
   },
   "hosting": {
     "public": ".",
-f9747b8511292454b2190aec265aa5c2bc2d8ed2
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
- HEAD
+
     ],
     "rewrites": [
       {
@@ -21,7 +20,6 @@ f9747b8511292454b2190aec265aa5c2bc2d8ed2
         "destination": "/login.html"
       }
 
-f9747b8511292454b2190aec265aa5c2bc2d8ed2
     ]
   }
 }
