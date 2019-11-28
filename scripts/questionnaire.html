@@ -27,6 +27,8 @@
     <!-- Add Firebase products that you want to use -->
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <script src="dataManagement.js"></script>
 
 
     <script>
@@ -75,10 +77,12 @@
 
     <div id="welcome" align="center" padding-top="50px">
 
+        <div id="firebaseui-auth-container"></div>
+
         <h2><b>User Recommendation Questionnaire</b></h2>
 
     </div>
-
+<!--
     <h2>Database tester: <span id="test1"> test </span></h2>
 
 
@@ -106,98 +110,98 @@
         </fieldset>
 
     </form>
-
+-->
 
     <h3> What is your budget? </h3>
 
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-      <label class="form-check-label" for="exampleRadios1">
+    <div class="form-check1" id="itemform">
+      <input class="form-check-input1" type="radio" name="exampleRadios" id="exampleRadios1" value="Laptop">
+      <label class="form-check-label1" for="exampleRadios1">
         Laptop
       </label>
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-      <label class="form-check-label" for="exampleRadios3">
+    <div class="form-check1">
+      <input class="form-check-input1" type="radio" name="exampleRadios" id="exampleRadios3" value="Tablet">
+      <label class="form-check-label1" for="exampleRadios3">
         Tablet
       </label>
     </div>
-    <div class="form-check disabled">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" disabled>
-      <label class="form-check-label" for="exampleRadios2">
+    <div class="form-check1">
+      <input class="form-check-input1" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" disabled>
+      <label class="form-check-label1" for="exampleRadios2">
         Desktop
       </label>
     </div>
 
     <h3> What is your budget? </h3>
 
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-      <label class="form-check-label" for="exampleRadios1">
+    <div class="form-check2" id="itemform2">
+      <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios4" value="Under $80">
+      <label class="form-check-label2" for="exampleRadios4">
         Under $80
       </label>
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-      <label class="form-check-label" for="exampleRadios3">
+    <div class="form-check2">
+      <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios5" value="$100 - $150">
+      <label class="form-check-label2" for="exampleRadios5">
         $100 - $150
       </label>
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-      <label class="form-check-label" for="exampleRadios4">
+    <div class="form-check2">
+      <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios6" value="$150 - $200">
+      <label class="form-check-label2" for="exampleRadios6">
         $150 - $200
       </label>
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
-      <label class="form-check-label" for="exampleRadios5">
+    <div class="form-check2">
+      <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios7" value="$200 - $250">
+      <label class="form-check-label2" for="exampleRadios7">
             $200 - $250
       </label>
       </div>
-      <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios6" value="option6">
-          <label class="form-check-label" for="exampleRadios6">
+      <div class="form-check2">
+          <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios8" value="$250 - $300">
+          <label class="form-check-label2" for="exampleRadios8">
                 $250 - $300
       </label>
       </div>
-      <div class="form-check">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios7" value="option7">
-          <label class="form-check-label" for="exampleRadios7">
+      <div class="form-check2">
+          <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios9" value="Over $300">
+          <label class="form-check-label2" for="exampleRadios9">
                 Over $300
           </label>
        </div>
 
     <h3> What is your brand preference? </h3>
 
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
-      <label class="form-check-label" for="exampleRadios1">
+    <div class="form-check3" id="itemform3">
+      <input class="form-check-input3" type="radio" name="exampleRadios3" id="exampleRadios10" value="Apple">
+      <label class="form-check-label3" for="exampleRadios10">
         Apple
       </label>
     </div>
-    <div class="form-check">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-      <label class="form-check-label" for="exampleRadios3">
+    <div class="form-check3">
+      <input class="form-check-input3" type="radio" name="exampleRadios3" id="exampleRadios11" value="Android">
+      <label class="form-check-label3" for="exampleRadios11">
         Android
       </label>
     </div>
-    <div class="form-check disabled">
-      <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios4" value="option4">
-      <label class="form-check-label" for="exampleRadios4">
+    <div class="form-check3">
+      <input class="form-check-input3" type="radio" name="exampleRadios3" id="exampleRadios12" value="Microsoft">
+      <label class="form-check-label3" for="exampleRadios12">
         Microsoft
       </label>
     </div>
   
-    <div class="form-check disabled">
-          <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios5" value="option5">
-          <label class="form-check-label" for="exampleRadios5">
+    <div class="form-check3">
+          <input class="form-check-input3" type="radio" name="exampleRadios3" id="exampleRadios13" value="Other">
+          <label class="form-check-label3" for="exampleRadios13">
             Other
           </label>
         </div>
   
     <div class="col-sm-10">
-      <button type="submit" class="btn btn-primary" href="">Next</button>
+      <button type="submit" class="btn btn-primary" id="button1" href="home.html">Submit</button>
     </div>
 
     <footer>
@@ -214,34 +218,153 @@ Sets up the firebase configuration.
 
 -->
     <script>
-
-
-
-        // Your web app's Firebase configuration
-        var firebaseConfig = {
-            apiKey: "AIzaSyBbIdW87jvGsEmWBqEM7fDpNqReFR8hbCY",
-            authDomain: "comp1930-a397b.firebaseapp.com",
-            databaseURL: "https://comp1930-a397b.firebaseio.com",
-            projectId: "comp1930-a397b",
-            storageBucket: "comp1930-a397b.appspot.com",
-            messagingSenderId: "11647424383",
-            appId: "1:11647424383:web:e234c0aa0329f47b9a2c4a",
-            measurementId: "G-CGWKDP4VTX"
+              var firebaseConfig = {
+              apiKey: "AIzaSyCWFoAHHXig43bLV6OG367BqhOPBlqrh4Q",
+              authDomain: "oct31-72990.firebaseapp.com",
+              databaseURL: "https://oct31-72990.firebaseio.com",
+              projectId: "oct31-72990",
+              storageBucket: "oct31-72990.appspot.com",
+              messagingSenderId: "617005703861",
+              appId: "1:617005703861:web:fdb1920a07d1b6338854fc",
+              measurementId: "G-6T24W0NH6V"
+          
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
-        const db = firebase.firestore();
+        var db = firebase.firestore();
 
-        db.collection('Users').doc('123').onSnapshot(function (snap) {
+        document.getElementById("button1").addEventListener("click", userData);
 
-            console.log("Current data is...", snap.data());
-            document.getElementById("test1").innerHTML = snap.data().email;
-            // another way is snap.data()["message"]
+        function userData(e){
 
-        });
+          e.preventDefault();
 
-        document.getElementById("button1").addEventListener("click", testAddress);
+          var selection1 = document.getElementById("itemform").value;
+
+          var selection2 = document.getElementById("itemform2").value;
+
+          var selection3 = document.getElementById("itemform3").value;
+
+          var device;
+
+          var budget;
+
+          var brand;
+
+          var user1 = "MZIDuvYxKhh0K0SfzVbWhkF2vXT2";
+
+          if(document.getElementById("exampleRadios1").checked){
+
+           device = document.getElementById("exampleRadios1").value;
+
+          } else if(document.getElementById("exampleRadios3").checked){
+
+            device = document.getElementById("exampleRadios3").value;
+
+          } else{
+
+            device = null;
+
+          }
+
+          if(document.getElementById("exampleRadios4").checked){
+
+              budget = document.getElementById("exampleRadios4").value;
+
+          } else if(document.getElementById("exampleRadios5").checked){
+
+            budget = document.getElementById("exampleRadios5").value;
+
+
+          } else if(document.getElementById("exampleRadios6").checked){
+
+
+            budget = document.getElementById("exampleRadios6").value;
+
+
+          } else if(document.getElementById("exampleRadios7").checked){
+
+
+            budget = document.getElementById("exampleRadios7").value;
+
+            
+          } else if(document.getElementById("exampleRadios8").checked){
+
+
+            budget = document.getElementById("exampleRadios8").value;
+
+            
+         } else if(document.getElementById("exampleRadios9").checked){
+
+          budget = document.getElementById("exampleRadios9").value;
+
+         } else{
+
+           budget = null;
+
+         }
+
+
+         if(document.getElementById("exampleRadios10").checked){
+
+          brand = document.getElementById("exampleRadios10").value;
+
+         } else if(document.getElementById("exampleRadios11").checked){
+
+          brand = document.getElementById("exampleRadios11").value;
+
+
+         } else if(document.getElementById("exampleRadios12").checked){
+
+          brand = document.getElementById("exampleRadios12").value;
+
+
+         } else if(document.getElementById("exampleRadios13").checked){
+
+         
+        brand = document.getElementById("exampleRadios13").value;
+
+
+         } else {
+
+
+        brand = null;
+
+         }
+        
+         firebase.auth().onAuthStateChanged(function (user) {
+
+                db.collection("users").doc(user1).update({
+                    
+                    DevicePreference: device,
+
+                    CurrentBudget: budget,
+
+                    FavouriteBrand: brand
+
+
+                }) .then(function(){
+
+                 pageChange();
+
+
+                });
+            });
+
+      saveData(budget, device, brand);
+
+      console.log("Device Preference Changed to " + device);
+
+      console.log("Budget Changed to " + budget);
+
+      console.log("Brand Preference Changed to " + brand);
+    
+    }
+
+
+
+      
 
 
 
@@ -261,11 +384,6 @@ Sets up the firebase configuration.
         // Fucntion that creates a new document in the users collection
 
         */
-
-        /** Writes user's e-mail information into database, 
-        so that they can use it to log into the system.
-        Allowing the system to provide them the proper
-        recommendations.*/
 
         /**
 
