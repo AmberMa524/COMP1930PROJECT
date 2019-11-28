@@ -7,23 +7,11 @@
   <title> TEMP NAME </title>
   
   <meta charset="uf-8">
-  <style>
-    .button {
-         background-color: #1c87c9;
-         border: none;
-         color: white;
-         padding: 20px 34px;
-         text-align: center;
-         text-decoration: none;
-         display: inline-block;
-         font-size: 20px;
-         margin: 4px 2px;
-         cursor: pointer;
-         }
-    </style>
+  
     <meta name="comp1930 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
-  
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Bootstrap for Mobile-first -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -53,20 +41,38 @@
       <script>
         // Your web app's Firebase configuration
         var firebaseConfig = {
-            apiKey: "AIzaSyASulrPQ9ArR_YHQLSHeIrzsdLHrWuXP8s",
-            authDomain: "oct31-8b1ec.firebaseapp.com",
-            databaseURL: "https://oct31-8b1ec.firebaseio.com",
-            projectId: "oct31-8b1ec",
-            storageBucket: "oct31-8b1ec.appspot.com",
-            messagingSenderId: "1036773466171",
-            appId: "1:1036773466171:web:b7b4b293fa9ecfb4bfbc1e",
-            measurementId: "G-3RM9F4RZLZ"
+              apiKey: "AIzaSyCWFoAHHXig43bLV6OG367BqhOPBlqrh4Q",
+              authDomain: "oct31-72990.firebaseapp.com",
+              databaseURL: "https://oct31-72990.firebaseio.com",
+              projectId: "oct31-72990",
+              storageBucket: "oct31-72990.appspot.com",
+              messagingSenderId: "617005703861",
+              appId: "1:617005703861:web:fdb1920a07d1b6338854fc",
+              measurementId: "G-6T24W0NH6V"
         };
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
+        // Initialize Firebase
+        // firebase.analytics();
+        var db = firebase.firestore();
     </script>
-
+  <style>
+    #questionaire{
+      width:500px;
+      height:300px;
+      left:33%;
+      text-align: center;
+    }
+    #fo{
+      position: relative;
+      top:50%;
+    }
+    @media only screen and (max-width: 650px){
+      #questionaire{left:0%}
+    }
+  
+  </style> 
   
   </head>
 
@@ -75,7 +81,7 @@
   <header>
   
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">TechAssist</a>
+  <a class="navbar-brand" href="home.html">TechAssist</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -83,13 +89,13 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="#"><button type="button" class="btn btn-primary btn-lg">Home</button><span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">User Recommendation Questionnaire</a>
+        <a id ="question" class="nav-link" href="questionnaire.html"><button type="button" class="btn btn-primary btn-lg">Menu</button></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" href="#">Compare/Contrast</a>
+        <a class="nav-link" href="menu.html"><button type="button" class="btn btn-primary btn-lg">Let us help you</button></a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -100,33 +106,63 @@
 </nav>
   
   </header>
-  
-  <div align="center" padding-top="50px">
-    
- <h4 class="daily-Deal">Daily Deals</h4>
-    
-          <div id="firebaseui-auth-container"></div>
+  <br><h3>Category</h3><br>
+    <form id = "ccformid" class = "ccclass" >
+    <div class="card-deck">
+      <div class="card" >
+        <a class="laptop_list" href="Laptops.html">
+          <div class="card-body">
+            <h4 class="card-title">Laptops</h4>
+            <img class = "ccthumbnails" src = "laptop.jpg" height = "50px" width="50px">
+          </div>
+        </a>
+      </div>
+  <div class="card">
+    <a class="tablet_list" href="#">
+      <div class="card-body">
+        <h4 class="card-title">Tablets</h4>
+        <img class = "ccthumbnails" src = "tablets.jpg" height = "50px" width="50px">
+      </div>
+    </a>
   </div>
-  
-  <div class="card" align="center">
-  <div class="card-body">
-    <img class="img-thumbnail" src="dellxps.jpg" alt="Thumbnail image" width="300px" height="300px">
-    <h4 class="card-title">Dell XPS 13</h4>
-    <h6 class="card-subtitle mb-2 text-muted">Price: $1300</h6>
-<!--    <p class="card-text">-->
-        <ul style="text-align: left">
-     <li>13" screen display</li>
-     <li>8 GB RAM</li>
-     <li>operating system = windows10</li>
-     <li>256GB flash_memory_solid_state</li>
-     <li>minimum 90 days warranty</li>
-     <li>Intel UHD Graphics 620</li>
-
-        </ul>
-      <a href="reviewlisting.html" class="button">View reviews</a>
+  <div class="card">
+    <a class = desktop_list href = "#">
+      <div class="card-body">
+        <h4 class="card-title">Desktops</h4>
+        <img class = "ccthumbnails" src = "desktop.png" height = "50px" width="50px">
+      </div>
+    </a>
+  </div>
 </div>
+
+  </form>
+    
+<br><br>
+ 
   
-  <footer>
-  </footer>
+  
+<div class="card" id = "questionaire">
+  <img class="card-img" src="questionaire.jpg" alt="Card image">
+  <div class="card-img-overlay">
+    <button type="button" class="btn btn-dark" id="fo">
+    <p class="card-text">Let us assist you in finding the right product.</p>
+      </button>
+  </div>
+</div>
+    
+          
+    
+
+    
+  
+
+ 
+  
+  
+        
+
   </body>
+
+
+
 </html>
