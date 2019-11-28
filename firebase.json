@@ -1,5 +1,5 @@
 {
-HEAD
+
   "hosting": {
     "public": "public",
   "firestore": {
