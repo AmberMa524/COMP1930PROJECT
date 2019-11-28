@@ -75,9 +75,6 @@
         <li class="nav-item">
           <a class="nav-link" href="questionnaire.html">User Recommendation Questionnaire</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="compare.html">Compare/Contrast</a>
-        </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -87,41 +84,84 @@
   </nav>
   
 <h4> Laptops </h4>
-<ul class = "listed">
+<ul id = "listed">
   
 </ul>
-
 
 
   
     <script>
       db.collection("laptops").get().then(function(querySnapshot){
+            var x = 1; 
+            
             querySnapshot.forEach(function(doc) {
         
             $(document).ready(function(){
-              var x = '<li id=' + doc.id + '>'; 
-              x += '<div class="card-body" id=' + doc.id + '1' + '>';
-              x += 
-              //$("body").append('<div class="card" id="display1">');
-              //$("#display1").append('<div class="card-body" id="display2">');
-              $("#display2").append('<p id="card1">');
-              $("#display1").append('<img id = "imgcard1" class = "card_images" src="" >');
-              $("#display1").append('<div class="card-body" id="display3">');
-              $("#display3").append('<p id="card_price1">');
-              document.getElementById("card1").innerHTML = doc.data().model;
-              document.getElementById("imgcard1").src = doc.data().image;
-              document.getElementById("card_price1").innerHTML = doc.data().price;
-              $("body").append('<br>');
-              console.log(doc.id, " => ", doc.data());
+              var c_con = doc.data().model;
+              
+              var d_con = doc.data().image;
+              
+              var f_con = doc.data().price;
+              
+              var y = "list" + x;
+              
+              
+              var z = '<li class = "ani" id ="' + y + '"></li>';
+              var z_id = '#' + y;
+
+              
+              $("#listed").append(z);
+              var a = '<div class="card" id="' + y + 'carddiv">';
+              var a_id = '#' + y + 'carddiv';
+
+              console.log(a);
+              $(z_id).append(a); //y.a
+              var b = '<div class="card-body" id="' + y + 'desdiv1">';
+              var b_id = '#' + y + 'desdiv1';
+              
+              console.log(b);
+              $(a_id).append(b);
+              var c = '<p class="card-text" id="' + y + 'model">' + c_con + '</p>';
+              var c_id = '#' + y + 'cardp1';
+              
+              console.log(c);
+              $(b_id).append(c);//b.c
+
+              var d = '<img id = "' + y + 'img" src="' + d_con + '"/>';
+              var d_id = '#' + y + 'img';
+              console.log("image............" + d_id);
+              console.log(d);
+              $(a_id).append(d);//a.d
+              
+              var e = '<div class="card-body" id="' + y + 'desdiv2">';
+              var e_id = '#' + y + 'desdiv2';
+              
+              console.log(e);
+              $(a_id).append(e);//a.e
+              
+              var f = '<p class="card-text" id="' + y + 'price">' + f_con + '</p>';
+              var f_id = '#' + y + 'cardp2';
+              
+              console.log(f);
+              $(e_id).append(f);
+              
+              console.log("happy.......................");
+              x++;
+              
+              var imagedim = {"width":"200px","height":"100px"};
+              $(d_id).css(imagedim);
+              
+              var liststyle = {"list-style":"none","margin":"0","padding":"0"};
+              $("#listed").css(liststyle);
+              
+              var listpadding = {"margin":"5px"};
+              $(".ani").css(listpadding);
             })
          });   
       });
 
   </script>
-  <script>
-          var style1 = {"width":"200px","height":"100px"};
-        $(".card_images").css(style1);
-  </script>
+
 
 </body>
 
