@@ -121,7 +121,7 @@
       </label>
     </div>
     <div class="form-check1">
-      <input class="form-check-input1" type="radio" name="exampleRadios" id="exampleRadios2" value="option2" disabled>
+      <input class="form-check-input1" type="radio" name="exampleRadios" id="exampleRadios2" value="Desktop">
       <label class="form-check-label1" for="exampleRadios2">
         Desktop
       </label>
@@ -252,6 +252,10 @@ Sets up the firebase configuration.
 
            device = document.getElementById("exampleRadios1").value;
 
+          } else if(document.getElementById("exampleRadios2").checked){
+
+            device = document.getElementById("exampleRadios2").value;
+            
           } else if(document.getElementById("exampleRadios3").checked){
 
             device = document.getElementById("exampleRadios3").value;
