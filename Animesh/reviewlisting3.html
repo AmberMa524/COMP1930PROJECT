@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  
+  <title> TEMP NAME </title>
+  
+  <meta charset="uf-8">
+  
+    <meta name="comp1930 boilerplate code" content="my bcit project">
+    <meta name="author" content="BCIT">
+  
+    <!-- Bootstrap for Mobile-first -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Optional styles and scripts of your own -->
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/script.js"></script>
+  
+      <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  
+      <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyASulrPQ9ArR_YHQLSHeIrzsdLHrWuXP8s",
+            authDomain: "oct31-8b1ec.firebaseapp.com",
+            databaseURL: "https://oct31-8b1ec.firebaseio.com",
+            projectId: "oct31-8b1ec",
+            storageBucket: "oct31-8b1ec.appspot.com",
+            messagingSenderId: "1036773466171",
+            appId: "1:1036773466171:web:b7b4b293fa9ecfb4bfbc1e",
+            measurementId: "G-3RM9F4RZLZ"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+  
+  </head>
+
+<body>
+  
+  <header>
+  
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">TechAssist</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">User Recommendation Questionnaire</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Compare/Contrast</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+  
+  </header>
+  
+  <div align="center" padding-top="50px">
+    
+ <h4 class="daily-Deal">Daily Deals</h4>
+    
+          <div id="firebaseui-auth-container"></div>
+
+      
+      <br><br><br>
+      <h3>REVIEWS</h3>
+      <p style="text-align: left">
+          <img src="usericon.jpg" alt="user icon" width="5%" height="5%">Rajeev Bansal
+          <br> I really like this ACER ASPIRE C24-865-ACi5NT ALL-IN-ONE DESKTOP PC. It’s my first all-in-one PC, and I love the small footprint, single power cable, and easy, easy setup. It’s a true plug-and-play machine that takes about 10 minutes to unbox, assemble, and start up.
+<br>
+The first boot takes a while, as Win10 Home makes itself presentable, and you need to get a big Win10 update when you first check for system updates, but it’s a terrific machine for home users who aren’t gamers. (Gamers need powerful, superfast machines with specialized graphics cards.) This PC is plenty fast for ordinary home users--it boots quickly, and loads files quickly.
+<br>
+KEYBOARD AND MOUSE. I don’t understand the other reviewers’ dislike of the Acer keyboard and mouse. These work off a dongle (a small radio receiver that you plug into a USB 2.0 port at the back of the monitor) when the mouse is turned on. The dongle is stored inside the mouse’s battery compartment. Both keyboard and mouse are sensitive, and I actually like the feel of the keyboard better than the feel of a very nice Verbatim quiet-key keyboard (with mouse) that I own that also works from a radio dongle.          
+          <span style="text-align: right">
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &ensp; &ensp; &ensp; &ensp; &ensp;
+              &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+              &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp; 
+              <img src="heart.png" alt="like" width="2%" height="2%">
+              &ensp; &ensp; &ensp; 
+              <img src="comment.png" alt="comment" width="2%" height="3%">
+          </span>
+      </p>
+<p style="text-align: left">
+          <img src="usericon.jpg" alt="user icon" width="5%" height="5%">Raziya sheikh
+          <br>UPDATE: Installed a 500GB SSD and now this computer is very fast. Too bad Acer went with a cheap, slow HD as stock for this. If you plan on having a descent anti-virus or do much beyond basic computing, highly recommend upgrading to SSD hard drive.
+<br>
+ORIGINAL: Had high hopes but the hard drive on this is really disappointing. Basic antivirus slows it way down and makes it act like a 5 year old computer. I had to order an ssd hard drive to make this act like it should brand new. I have built PCs for years and owned several brand name PCs too. This has been pretty disappointing after one week
+          <span style="text-align: right">
+<!--              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &ensp; &ensp; &ensp; &ensp; &ensp;-->
+              &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+              &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; 
+              <img src="heart.png" alt="like" width="2%" height="2%">
+              &ensp; &ensp; &ensp; &ensp; &ensp;
+              <img src="comment.png" alt="comment" width="2%" height="3%">
+          </span>
+      </p>
+      <br><br>
+      <h5 style="text-align: left">REVIEW SUMMARY:</h5>  
+      <p style="text-align: left">
+      This is a great All in One PC!<br>
+I've only had it up and running a few days, but so far so good! It is very fast and has seriously cleaned up my desktop-no more cables and stuff above and under desk.<br>
+It runs very quiet despite the fact that it doesn't have an SSD, and is an excellent option for word processing, spread sheets, email, web browsing, etc...obv if you're a serious gamer or video editor look elsewhere, but all in all a great machine! Would Recommend!<br>
+Pros<br>
+-Fast performance<br>
+-Quiet<br>
+-Visually appealing<br>
+-Good Value<br>
+Cons<br>
+-built in speakers aren't great (were you expecting them to be?)<br>
+-Included Wireless keyboard and mouse aren't great -not terrible though     
+          <br>
+          <br>
+      </p>
+
+</div>
+  
+  <footer>
+  </footer>
+  </body>
+</html>
