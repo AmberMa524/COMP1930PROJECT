@@ -91,7 +91,7 @@
 
   </header>
 
-  <h4> Laptops </h4>
+  <h4> Desktops </h4>
   <ul id="listed">
 
   </ul>
@@ -99,7 +99,7 @@
 
 
   <script>
-    db.collection("Laptop").get().then(function (querySnapshot) {
+    db.collection("Desktops").get().then(function (querySnapshot) {
       var x = 1;
 
       querySnapshot.forEach(function (doc) {
