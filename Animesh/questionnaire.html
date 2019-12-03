@@ -76,35 +76,6 @@
         <h2><b>User Recommendation Questionnaire</b></h2>
 
     </div>
-<!--
-    <h2>Database tester: <span id="test1"> test </span></h2>
-
-
-    <form id="myform">
-        <fieldset>
-            <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-                <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label for="inputPassword3" class="col-sm-2 col-form-label">Name</label>
-                <div class="col-sm-10">
-                    <input type="name" class="form-control" id="inputName3" placeholder="Name">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-10">   
-                    <button type="button" id="button1" href="questionnaire2.html">Submit
-                    </button>
-                </div>
-            </div>
-
-        </fieldset>
-
-    </form>
--->
 
     <h3> What is your budget? </h3>
 
@@ -206,12 +177,11 @@
 
 
 
-    <!--
 
-Sets up the firebase configuration.
-
--->
     <script>
+
+      /** Configures Firebase. */
+
               var firebaseConfig = {
               apiKey: "AIzaSyCWFoAHHXig43bLV6OG367BqhOPBlqrh4Q",
               authDomain: "oct31-72990.firebaseapp.com",
@@ -223,12 +193,18 @@ Sets up the firebase configuration.
               measurementId: "G-6T24W0NH6V"
           
         };
-        // Initialize Firebase
+        // Initializes Firebase
         firebase.initializeApp(firebaseConfig);
         firebase.analytics();
         var db = firebase.firestore();
 
+        /** If the user presses the submit button and all the fields are checked,
+        the next page will display their recommendations. */
+
         document.getElementById("button1").addEventListener("click", userData);
+
+        /** Takes in user input, and writes it into their database.
+        It also writes it into the local storage so that it can produce results. */
 
         function userData(e){
 
@@ -245,6 +221,9 @@ Sets up the firebase configuration.
           var budget;
 
           var brand;
+
+          /**Checks user's device preference.
+        Note that one of these must be checked in order for the program to work. */
 
           if(document.getElementById("exampleRadios1").checked){
 
@@ -263,6 +242,9 @@ Sets up the firebase configuration.
             device = null;
 
           }
+
+          /** Checks user's current budget.
+          Note that one of these must be checked in order for the program to work. */
 
           if(document.getElementById("exampleRadios4").checked){
 
@@ -301,6 +283,8 @@ Sets up the firebase configuration.
 
          }
 
+        /** Checks user's brand preference.
+        Note that one of these must be checked in order for the program to work. */
 
          if(document.getElementById("exampleRadios10").checked){
 
@@ -328,6 +312,8 @@ Sets up the firebase configuration.
         brand = null;
 
          }
+
+         /** Alters information in user's database. */
         
          firebase.auth().onAuthStateChanged(function (user) {
 
@@ -349,6 +335,8 @@ Sets up the firebase configuration.
 
                 });
             });
+
+      /** Saves data from questionnaire to be used in the results. */
 
       saveData(budget, device, brand);
 

@@ -99,12 +99,19 @@
 
 
   <script>
+
+        /** Automatically generates all of the tablets from our database,
+    using their information to create listing thumbnails. */
+
     db.collection("Tablets").get().then(function (querySnapshot) {
       var x = 1;
 
       querySnapshot.forEach(function (doc) {
 
         $(document).ready(function () {
+
+          /** Takes almost all values from the
+          tablet document. */
 
           let priceValue = doc.data().price;
 
@@ -115,6 +122,8 @@
           let companyValue = doc.data().company;
 
           let linkValue = doc.data().link;
+
+          /** Uses Dom to create listing thumbnails. */
 
           var y = "list" + x;
 
