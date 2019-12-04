@@ -3,188 +3,206 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <title>My BCIT Project</title>
-  <meta name="comp1930 boilerplate code" content="my bcit project">
-  <meta name="author" content="BCIT">
+    <meta charset="utf-8">
+    <title>My BCIT Project</title>
+    <meta name="comp1930 boilerplate code" content="my bcit project">
+    <meta name="author" content="BCIT">
 
-  <!-- Bootstrap for Mobile-first -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- Bootstrap for Mobile-first -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
-  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+    <!-- Optional styles and scripts of your own -->
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/script.js"></script>
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
 
-  <!-- Optional styles and scripts of your own -->
-  <link rel="stylesheet" href="styles/style.css">
-  <script src="scripts/script.js"></script>
-  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
-  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
 
-  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
-  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
 
-  <!-- Add Firebase products that you want to use -->
-  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+              apiKey: "AIzaSyCWFoAHHXig43bLV6OG367BqhOPBlqrh4Q",
+              authDomain: "oct31-72990.firebaseapp.com",
+              databaseURL: "https://oct31-72990.firebaseio.com",
+              projectId: "oct31-72990",
+              storageBucket: "oct31-72990.appspot.com",
+              messagingSenderId: "617005703861",
+              appId: "1:617005703861:web:fdb1920a07d1b6338854fc",
+              measurementId: "G-6T24W0NH6V"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            // firebase.analytics();
+            var db = firebase.firestore();
+            
+    </script>
 
-  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-  <script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-      apiKey: "AIzaSyCWFoAHHXig43bLV6OG367BqhOPBlqrh4Q",
-      authDomain: "oct31-72990.firebaseapp.com",
-      databaseURL: "https://oct31-72990.firebaseio.com",
-      projectId: "oct31-72990",
-      storageBucket: "oct31-72990.appspot.com",
-      messagingSenderId: "617005703861",
-      appId: "1:617005703861:web:fdb1920a07d1b6338854fc",
-      measurementId: "G-6T24W0NH6V"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-    // firebase.analytics();
-    var db = firebase.firestore();
-
-  </script>
 
 </head>
 
 <body>
-  <header>
+  <header id = "myHeader">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">techAssist</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="home.html">TechAssist</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">User Recommendation Questionnaire</a>
+        </li>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="home.html"><button type="button" class="btn btn-primary btn-lg">Home</button><span
-                class="sr-only">(current)</span></a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="questionnaire.html"><button type="button" class="btn btn-primary btn-lg">Let us
-                help you</button></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-
-  </header>
-
-  <h4> Laptops </h4>
-  <ul id="listed">
-
-  </ul>
-
-
-
-  <script>
-
-    /** Automatically generates all of the laptops from our database,
-    using their information to create listing thumbnails. */
-
-    db.collection("Laptop").get().then(function (querySnapshot) {
-      var x = 1;
-
-      querySnapshot.forEach(function (doc) {
-
-        $(document).ready(function () {
-
-          /** Takes almost all values from the
-          laptop document. */
-
-          let priceValue = doc.data().price;
-
-          let nameValue = doc.data().name;
-
-          let imageValue = doc.data().image;
-
-          let companyValue = doc.data().company;
-
-          let linkValue = doc.data().link;
-
-          /** Uses Dom to create listing thumbnails. */
-
-          var y = "list" + x;
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  
+    <h4> Laptops </h4>
+    <button onclick = "next()" id = "comparing" type="button" class="btn btn-outline-success">Go to comparing Screen</button>
+</header>
+<ul id = "listed">
+  
+</ul>
+  
 
 
-          var z = '<li class = "ani" id ="' + y + '"></li>';
-          var z_id = '#' + y;
+  
+    <script>
+      
 
 
-          $("#listed").append(z);
-          var a = '<div class="card" id="' + y + 'carddiv">';
-          var a_id = '#' + y + 'carddiv';
+      window.compared = new Array();
+      db.collection("laptops").get().then(function(querySnapshot){
+            var x = 1; 
+            
+            querySnapshot.forEach(function(doc) {
+        
+            $(document).ready(function(){
+              var c_con = doc.data().model;
+              
+              var d_con = doc.data().image;
+              
+              var f_con = doc.data().price;
+              
+              var y = "list" + x;
+              
+              
+              var z = '<li class = "ani" id ="' + y + '"></li>';
+              var z_id = '#' + y;
 
-          console.log(a);
-          $(z_id).append(a); //y.a
-          var b = '<div class="card-body" id="' + y + 'desdiv1">';
-          var b_id = '#' + y + 'desdiv1';
+              
+              $("#listed").append(z);
+              var a = '<div class="card" id="' + y + 'carddiv">';
+              var a_id = '#' + y + 'carddiv';
 
-          console.log(b);
-          $(a_id).append(b);
-          var c = '<p class="card-text" id="' + y + 'model">' + nameValue + '</p>';
-          var c_id = '#' + y + 'cardp1';
+              console.log(a);
+              $(z_id).append(a); //y.a
+              var b = '<div class="card-body" id="' + y + 'desdiv1">';
+              var b_id = '#' + y + 'desdiv1';
+              
+              console.log(b);
+              $(a_id).append(b);
+              var c = '<p class="card-text" id="' + y + 'model">' + c_con + '</p>';
+              var c_id = '#' + y + 'cardp1';
+              
+              console.log(c);
+              $(b_id).append(c);//b.c
 
-          console.log(c);
-          $(b_id).append(c);//b.c
-
-          var d = '<img id = "' + y + 'img" src="' + imageValue + '"/>';
-          var d_id = '#' + y + 'img';
-          console.log("image............" + d_id);
-          console.log(d);
-          $(a_id).append(d);//a.d
-
-          var e = '<div class="card-body" id="' + y + 'desdiv2">';
-          var e_id = '#' + y + 'desdiv2';
-
-          console.log(e);
-          $(a_id).append(e);//a.e
-
-          var f = '<p class="card-text" id="' + y + 'price">' + priceValue + '</p>';
-          var f_id = '#' + y + 'cardp2';
-
-          console.log(f);
-          $(e_id).append(f);
-
-          var g = '<a href="' + linkValue + '"><button> See Page </button></a>';
-          var g_id = '#' + y + 'seeMore';
-
-          console.log(g);
-          $(e_id).append(g);
-
-          console.log("happy.......................");
-          x++;
-
-          var imagedim = { "width": "200px", "height": "100px" };
-          $(d_id).css(imagedim);
-
-          var liststyle = { "list-style": "none", "margin": "0", "padding": "0" };
-          $("#listed").css(liststyle);
-
-          var listpadding = { "margin": "5px" };
-          $(".ani").css(listpadding);
-
-
-        })
+              var d = '<img id = "' + y + 'img" src="' + d_con + '"/>';
+              var d_id = '#' + y + 'img';
+              console.log("image............" + d_id);
+              console.log(d);
+              $(a_id).append(d);//a.d
+              
+              var e = '<div class="card-body" id="' + y + 'desdiv2">';
+              var e_id = '#' + y + 'desdiv2';
+              
+              console.log(e);
+              $(a_id).append(e);//a.e
+              
+              var f = '<p class="card-text" id="' + y + 'price">' + f_con + '</p>';
+              var f_id = '#' + y + 'cardp2';
+              
+              console.log(f);
+              $(e_id).append(f);
+              
+              var dolo = doc.id;
+              
+              var compare = '<button  id="' + y + 'comare" type="button" value = ' + dolo + ' class="btn btn-success" onclick = "compareto(this.value)" >Add to Compare</button>';
+              var compare_id = '#' + y + 'comare';
+              
+              var rev = '<button  id="' + y + 'rev" type="button" class="btn btn-success">Review</button>';
+              var compare_id = '#' + y + 'rev';
+              
+              
+              
+              $(e_id).append(compare);
+              $(e_id).append(rev);
+              
+              console.log("happy.......................");
+              x++;
+              
+              var imagedim = {"width":"200px","height":"100px"};
+              $(d_id).css(imagedim);
+              
+              var liststyle = {"list-style":"none","margin":"0","padding":"0", "max-width":"80%"};
+              $("#listed").css(liststyle);
+              
+              var listpadding = {"margin":"5px"};
+              $(".ani").css(listpadding);
+              
+              var hor = {"max-with": "40px","margin":"5px"};
+              $(compare_id).css(hor);
+              
+            })
+         });   
       });
-    });
+      
+      
+      function compareto(itemid){
+        
+        var agla = itemid;
+        window.compared.push(itemid);
+        
+        console.log(window.compared);
+        
+      }
+      function next(itemid){
+        var l = "laptops";
+
+        localStorage.setItem("pichla",JSON.stringify(window.compared));
+        localStorage.setItem("coll",l);
+        window.open("compare.html");
+      }
 
   </script>
 
