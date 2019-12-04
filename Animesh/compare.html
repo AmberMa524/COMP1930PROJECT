@@ -1,28 +1,32 @@
-<!DOCTYPE html>
+<!doctype html>
 
-<html>
+<html lang="en">
 
 <head>
-  
-  <title> Compare and Contrast </title>
-  
-  <meta charset="uf-8">
-  
+    <meta charset="utf-8">
+    <title>My BCIT Project</title>
     <meta name="comp1930 boilerplate code" content="my bcit project">
     <meta name="author" content="BCIT">
-  
-  
+
     <!-- Bootstrap for Mobile-first -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 
     <!-- Optional styles and scripts of your own -->
     <link rel="stylesheet" href="styles/style.css">
     <script src="scripts/script.js"></script>
-  
     <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
 
@@ -35,7 +39,7 @@
 
     <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
     <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
-      <script>
+        <script>
             // Your web app's Firebase configuration
             var firebaseConfig = {
               apiKey: "AIzaSyCWFoAHHXig43bLV6OG367BqhOPBlqrh4Q",
@@ -51,8 +55,34 @@
             firebase.initializeApp(firebaseConfig);
             // firebase.analytics();
             var db = firebase.firestore();
+            
     </script>
+  <style>
+    #customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 5px;
+}
+
+
+
+
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
   
+  
+}
+  
+  </style>
+
 </head>
 
 <body>
@@ -70,9 +100,7 @@
         <li class="nav-item">
           <a class="nav-link" href="#">User Recommendation Questionnaire</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#">Compare/Contrast</a>
-        </li>
+
       </ul>
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -81,37 +109,60 @@
     </div>
   </nav>
   
-  <br><br>
-  
-  <form id = "ccformid" class = "ccclass" >
-    <div class="card-deck">
-      <div class="card" >
-        <a class="laptop_list" href="Laptops.html">
-          <div class="card-body">
-            <h4 class="card-title">Laptops</h4>
-            <img class = "ccthumbnails" src = "laptop.jpg" height = "50px" width="50px">
-          </div>
-        </a>
-      </div>
-  <div class="card">
-    <a class="tablet_list" href="#">
-      <div class="card-body">
-        <h4 class="card-title">Tablets</h4>
-        <img class = "ccthumbnails" src = "tablets.jpg" height = "50px" width="50px">
-      </div>
-    </a>
-  </div>
-  <div class="card">
-    <a class = desktop_list href = "#">
-      <div class="card-body">
-        <h4 class="card-title">Desktops</h4>
-        <img class = "ccthumbnails" src = "desktop.png" height = "50px" width="50px">
-      </div>
-    </a>
-  </div>
-</div>
+<table id="customers">
+  <tr id = "product">
+   <th>Product</th>
+  </tr>
+  <tr id = "price">
+    <th>Price</th>
+  </tr>
+  <tr id = "Memory">
+    <th>Hard Drive</th>
+  </tr>
+  <tr id = "Processor">
+    <th>Processor</th>
+  </tr>
+  <tr id = "Screen">
+    <th>Screen Size</th>
+  </tr>
+  <tr id = "ram">
+    <th>Ram Memory</th>
+  </tr>
+  <tr id = "Weight">
+    <th>Weight</th>
+  </tr>
+</table>
 
-  </form>
+  <script>
+    var tul = localStorage.getItem("coll");
+    console.log("tul " + tul);
+    var item1 = new Array();
+    item1 = JSON.parse(localStorage.getItem("pichla"));
+    console.log(item1);
+    console.log(item1[0]);
+    for(var i = 0; i < item1.length; i++){
+      var item2 = item1[i];
+      
+       db.collection(tul).doc(item2).onSnapshot(function(snap){
+        $(document).ready(function(){
+          var pricea = snap.data().price;
+          var modela = snap.data().model;
+          var a = '<th  id="' + snap.data().model + 'price">' + pricea + '</th>';
+          var b = '<th  id="' + snap.data().model + 'price">' + modela + '</th>';
+          console.log(pricea);
+          $("#price").append(a);
+          $("#product").append(b);
+          //document.getElementById("colo").innerHTML = pricea;
+        })
+            console.log ("current data is ...",snap.data());
+            
+      });
+      
+    }
+    
+
+  </script>
+  
   
 
 
