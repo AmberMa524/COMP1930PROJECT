@@ -246,7 +246,7 @@ Sets up the firebase configuration.
 
           var brand;
 
-          var user1 = "MZIDuvYxKhh0K0SfzVbWhkF2vXT2";
+          var user1 = localStorage.getItem("user123");;
 
           if(document.getElementById("exampleRadios1").checked){
 
@@ -331,7 +331,7 @@ Sets up the firebase configuration.
 
          }
         
-         firebase.auth().onAuthStateChanged(function (user) {
+         firebase.auth().onAuthStateChanged(function (user1) {
 
                 db.collection("users").doc(user1).update({
                     
