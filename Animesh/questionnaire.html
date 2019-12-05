@@ -243,16 +243,10 @@ Sets up the firebase configuration.
 
       var selection3 = document.getElementById("itemform3").value;
 
-          console.log(selection1);
-
-          var selection2 = document.getElementById("itemform2").value;
-
       var budget;
 
       var brand;
 
-      var user1 = localStorage.getItem("user123");;
-      console.log(user1);
       if (document.getElementById("exampleRadios1").checked) {
 
         device = document.getElementById("exampleRadios1").value;
@@ -337,18 +331,11 @@ Sets up the firebase configuration.
       }
 
 
-<<<<<<< HEAD
-          var user1 = db.collection('users').doc(user.uid);
+       firebase.auth().onAuthStateChanged(function(user){
 
-                user1.set({
-                    
-                    DevicePreference: device,
-=======
+        var user1 = db.collection('users').doc(user.uid);
 
-      db.collection('users').doc(user1).set({
->>>>>>> 02b56a5ab51fa38b65628a9a9065a400fd88ce8c
-
-
+        user1.set({
 
         DevicePreference: device,
 
@@ -356,10 +343,13 @@ Sets up the firebase configuration.
 
         FavouriteBrand: brand
 
-      })
-      .then(function(){
-        cosnsole.log("Written");
+      }, {merge: true}) .then(function(){
+
+        pageChange();
+
       });
+
+  });
 
 
       saveData(budget, device, brand);
