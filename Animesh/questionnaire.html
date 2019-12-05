@@ -333,7 +333,9 @@ Sets up the firebase configuration.
         
          firebase.auth().onAuthStateChanged(function (user1) {
 
-                db.collection("users").doc(user1).update({
+          var user1 = db.collection('users').doc("MZIDuvYxKhh0K0SfzVbWhkF2vXT2");
+
+                user1.update({
                     
                     DevicePreference: device,
 
