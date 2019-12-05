@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title> TEMP NAME </title>
+
+  <meta charset="uf-8">
+
+  <meta name="comp1930 boilerplate code" content="my bcit project">
+  <meta name="author" content="BCIT">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Bootstrap for Mobile-first -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <!-- Optional styles and scripts of your own -->
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="scripts/script.js"></script>
+
+  <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCWFoAHHXig43bLV6OG367BqhOPBlqrh4Q",
+      authDomain: "oct31-72990.firebaseapp.com",
+      databaseURL: "https://oct31-72990.firebaseio.com",
+      projectId: "oct31-72990",
+      storageBucket: "oct31-72990.appspot.com",
+      messagingSenderId: "617005703861",
+      appId: "1:617005703861:web:fdb1920a07d1b6338854fc",
+      measurementId: "G-6T24W0NH6V"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    // Initialize Firebase
+    // firebase.analytics();
+    var db = firebase.firestore();
+  </script>
+  <style>
+    #questionaire {
+      width: 500px;
+      height: 300px;
+      left: 33%;
+      text-align: center;
+    }
+
+    #fo {
+      position: relative;
+      top: 50%;
+    }
+
+    @media only screen and (max-width: 650px) {
+      #questionaire {
+        left: 0%;
+        max-width: 100%;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="home.html">TechAssist</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"><button type="button" class="btn btn-primary btn-lg">Home</button><span
+                class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="questionnaire.html"><button type="button" class="btn btn-primary btn-lg">Let us help
+                you</button></a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+  </header>
+  <br>
+  <h3>Category</h3><br>
+  <form id="ccformid" class="ccclass">
+    <div class="card-deck">
+      <div class="card">
+        <a class="laptop_list" href="Laptops.html">
+          <div class="card-body">
+            <h4 class="card-title">Laptops</h4>
+            <img class="ccthumbnails" src="laptop.jpg" height="50px" width="50px">
+          </div>
+        </a>
+      </div>
+      <div class="card">
+        <a class="tablet_list" href="Tablets.html">
+          <div class="card-body">
+            <h4 class="card-title">Tablets</h4>
+            <img class="ccthumbnails" src="tablets.jpg" height="50px" width="50px">
+          </div>
+        </a>
+      </div>
+      <div class="card">
+        <a class=desktop_list href="Desktops.html">
+          <div class="card-body">
+            <h4 class="card-title">Desktops</h4>
+            <img class="ccthumbnails" src="desktop.png" height="50px" width="50px">
+          </div>
+        </a>
+      </div>
+    </div>
+  </form>
+  <br><br>
+  <div class="card" id="questionaire">
+    <img class="card-img" src="questionaire.jpg" alt="Card image">
+    <div class="card-img-overlay">
+        <a href="questionnaire.html">
+      <button type="button" class="btn btn-dark" id="fo">
+        <p class="card-text">Let us assist you in finding the right product.</p>
+      </button>
+    </a>
+    </div>
+  </div>
+  <script>
+      // Fucntion that creates a new document in the users collection
+function createUser() {
+
+    // if the current user logged in user
+    // is authenticated, then grab "uid" "displayName" and "email"
+    // use "set()" with merge (if document did not exist it will be created)
+    firebase.auth().onAuthStateChanged(function(user){
+        db.collection("users").doc(user.uid).set(
+    	{
+        "name":user.displayName, 
+         "email":user.email,
+        },{ merge: true });
+    });
+}
+  createUser();
+  </script>
+  
+
+</body>
+</html>

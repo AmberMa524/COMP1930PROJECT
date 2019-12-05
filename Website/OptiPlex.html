@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  
+  <title> TEMP NAME </title>
+  
+  <meta charset="uf-8">
+  <style>
+    .button {
+         background-color: #1c87c9;
+         border: none;
+         color: white;
+         padding: 20px 34px;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 20px;
+         margin: 4px 2px;
+         cursor: pointer;
+         }
+    </style>
+    <meta name="comp1930 boilerplate code" content="my bcit project">
+    <meta name="author" content="BCIT">
+  
+    <!-- Bootstrap for Mobile-first -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Optional styles and scripts of your own -->
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/script.js"></script>
+  
+      <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  
+      <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyASulrPQ9ArR_YHQLSHeIrzsdLHrWuXP8s",
+            authDomain: "oct31-8b1ec.firebaseapp.com",
+            databaseURL: "https://oct31-8b1ec.firebaseio.com",
+            projectId: "oct31-8b1ec",
+            storageBucket: "oct31-8b1ec.appspot.com",
+            messagingSenderId: "1036773466171",
+            appId: "1:1036773466171:web:b7b4b293fa9ecfb4bfbc1e",
+            measurementId: "G-3RM9F4RZLZ"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+  
+  </head>
+
+<body>
+  
+    <header>
+  
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <a class="navbar-brand" href="home.html">TechAssist</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="home.html"><button type="button" class="btn btn-primary btn-lg">Home</button><span class="sr-only">(current)</span></a>
+              </li>
+        
+              <li class="nav-item">
+                <a class="nav-link" href="questionnaire.html"><button type="button" class="btn btn-primary btn-lg">Let us help you</button></a>
+              </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+          
+          </header>
+  
+  <div align="center" padding-top="50px">
+    
+          <div id="firebaseui-auth-container"></div>
+  </div>
+  
+  <div class="card" align="center">
+  <div class="card-body">
+    <img class="img-thumbnail" src="OptiPlex.jpg" alt="Thumbnail image" width="300px" height="300px">
+    <h4 class="card-title">OptiPlex 5270</h4>
+    <h6 class="card-subtitle mb-2 text-muted">Price: $900</h6>
+<!--    <p class="card-text">-->
+        <ul style="text-align: left">
+     <li>21.5" screen display</li>
+     <li>8 GB RAM</li>
+     <li>operating system = windows10</li>
+
+        </ul>
+        <a href="https://www.dell.com/en-ca/work/shop/dell-desktops-workstations/optiplex-5270-all-in-one-desktop/spd/optiplex-5270-aio" class="button">
+        Buy it Now
+        </a>
+      <a href="reviewlisting.html" class="button">View reviews</a>
+</div>
+    </div>
+  <footer>
+  </footer>
+  </body>
+</html>

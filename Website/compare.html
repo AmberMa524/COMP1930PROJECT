@@ -1,0 +1,184 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>My BCIT Project</title>
+  <meta name="comp1930 boilerplate code" content="my bcit project">
+  <meta name="author" content="BCIT">
+
+  <!-- Bootstrap for Mobile-first -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+
+  <!-- Optional styles and scripts of your own -->
+  <link rel="stylesheet" href="styles/style.css">
+  <script src="scripts/script.js"></script>
+  <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+  <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyCWFoAHHXig43bLV6OG367BqhOPBlqrh4Q",
+      authDomain: "oct31-72990.firebaseapp.com",
+      databaseURL: "https://oct31-72990.firebaseio.com",
+      projectId: "oct31-72990",
+      storageBucket: "oct31-72990.appspot.com",
+      messagingSenderId: "617005703861",
+      appId: "1:617005703861:web:fdb1920a07d1b6338854fc",
+      measurementId: "G-6T24W0NH6V"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    // firebase.analytics();
+    var db = firebase.firestore();
+  </script>
+  <!--
+    CSS for displaying the comparison in table format. 
+  -->
+  <style>
+    #customers {
+      font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    #customers td,
+    #customers th {
+      border: 1px solid #ddd;
+      padding: 5px;
+    }
+
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+
+
+    }
+  </style>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">TechAssist</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="home.html"><button type="button" class="btn btn-primary btn-lg">Home</button><span
+              class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="questionnaire.html"><button type="button" class="btn btn-primary btn-lg">Let us
+              help you</button></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <table id="customers">
+    <tr id="product">
+      <th>Product</th>
+    </tr>
+    <tr id="price">
+      <th>Price</th>
+    </tr>
+    <tr id="Memory">
+      <th>Hard Drive</th>
+    </tr>
+    <tr id="Processor">
+      <th>Processor</th>
+    </tr>
+    <tr id="Screen">
+      <th>Screen Size</th>
+    </tr>
+    <tr id="ram">
+      <th>Ram Memory</th>
+    </tr>
+    <tr id="Weight">
+      <th>Weight</th>
+    </tr>
+  </table>
+  <!--
+    This scripts gets the doc id from local storage in array form.
+    And then reads all the fields of all documents and prints it to the table in HTML.
+  -->
+  <script>
+    var tul = localStorage.getItem("coll");
+    console.log("tul " + tul);
+    var item1 = new Array();
+    item1 = JSON.parse(localStorage.getItem("pichla"));
+    console.log(item1);
+    console.log(item1[0]);
+    for (var i = 0; i < item1.length; i++) {
+      var item2 = item1[i];
+
+      db.collection(tul).doc(item2).onSnapshot(function (snap) {
+        $(document).ready(function () {
+          var pricea = snap.data().price;
+          var modela = snap.data().model;
+          var hda = snap.data().hard_drive;
+          var ram = snap.data().ram;
+          var processor = snap.data().processor;
+          var ss = snap.data().screen_size;
+          var wt = snap.data().weight;
+          var a = '<th  id="' + snap.data().model + 'price">$' + pricea + '</th>';
+          var b = '<th  id="' + snap.data().price + 'price">' + modela + '</th>';
+          var c = '<th  id="' + snap.data().hard_drive + 'price">' + hda + '</th>';
+          var d = '<th  id="' + snap.data().ram + 'price">' + ram + '</th>';
+          var e = '<th  id="' + snap.data().processor + 'price">' + processor + '</th>';
+          var f = '<th  id="' + snap.data().ss + 'price">' + ss + '</th>';
+          var g = '<th  id="' + snap.data().wt + 'price">' + wt + '</th>';
+          //console.log(pricea);
+          $("#price").append(a);
+          $("#product").append(b);
+          $("#Memory").append(c);
+          $("#Processor").append(e);
+          $("#Screen").append(f);
+          $("#ram").append(d);
+          $("#Weight").append(g);
+        })
+        console.log("current data is ...", snap.data());
+
+      });
+
+    }
+  </script>
+
+
+
+
+</body>
+
+
+
+</html>

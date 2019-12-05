@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  
+  <title> TEMP NAME </title>
+  
+  <meta charset="uf-8">
+  
+    <meta name="comp1930 boilerplate code" content="my bcit project">
+    <meta name="author" content="BCIT">
+  
+    <!-- Bootstrap for Mobile-first -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- Optional styles and scripts of your own -->
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/script.js"></script>
+  
+      <!-- Insert these scripts at the bottom of the HTML, but before you use any Firebase services -->
+
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-app.js"></script>
+
+    <!-- If you enabled Analytics in your project, add the Firebase SDK for Analytics -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-analytics.js"></script>
+
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+
+    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
+  
+      <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyASulrPQ9ArR_YHQLSHeIrzsdLHrWuXP8s",
+            authDomain: "oct31-8b1ec.firebaseapp.com",
+            databaseURL: "https://oct31-8b1ec.firebaseio.com",
+            projectId: "oct31-8b1ec",
+            storageBucket: "oct31-8b1ec.appspot.com",
+            messagingSenderId: "1036773466171",
+            appId: "1:1036773466171:web:b7b4b293fa9ecfb4bfbc1e",
+            measurementId: "G-3RM9F4RZLZ"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+    </script>
+
+  
+  </head>
+
+<body>
+  
+  <header>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="home.html">TechAssist</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="home.html"><button type="button" class="btn btn-primary btn-lg">Home</button><span
+                class="sr-only">(current)</span></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="questionnaire.html"><button type="button" class="btn btn-primary btn-lg">Let us help
+                you</button></a>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+  </header>
+  
+  <div align="center" padding-top="50px">
+    
+          <div id="firebaseui-auth-container"></div>
+
+      
+      <br><br><br>
+      <h3>REVIEWS</h3>
+      <p style="text-align: left">
+          <img src="usericon.jpg" alt="user icon" width="5%" height="5%">Patrick Vaughan
+          <br>Total rip off !! The Refurbit company took an old Laptop and sold it. The previous user had the lock screen still set up !!
+          <br>They obviously didn't even examine it let alone cleaning it out. or even turning it on ! They have a Help line which is
+          <br>only open daytime and closes at 4pm and even then they don't answer. Total rip off.
+          <br>Great news is thankfully purchasing through Amazon it was so easy to return it . Thanks Amazon 
+          <span style="text-align: right">
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &ensp; &ensp; &ensp; &ensp; &ensp;
+              &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+              <img src="heart.png" alt="like" width="2%" height="2%">
+              &ensp; &ensp; &ensp; &ensp; &ensp;
+              <img src="comment.png" alt="comment" width="2%" height="3%">
+          </span>
+      </p>
+<p style="text-align: left">
+          <img src="usericon.jpg" alt="user icon" width="5%" height="5%">RM Wild
+          <br>Easy start up, usual Microsoft win 10 rigamarole, but laptop no issues.
+          <span style="text-align: right">
+              &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; &ensp; &ensp; &ensp; &ensp; &ensp;
+              &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp; &ensp;
+              &ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp; &ensp;&ensp; &ensp; &ensp; &ensp; &ensp;&ensp;
+              <img src="heart.png" alt="like" width="2%" height="2%">
+              &ensp; &ensp; &ensp; &ensp; &ensp;
+              <img src="comment.png" alt="comment" width="2%" height="3%">
+          </span>
+      </p>
+      <br><br>
+      <h5 style="text-align: left">REVIEW SUMMARY:</h5>  
+      <p style="text-align: left">
+      I turned unit on and initiated Windows to check. This unit is a Christmas gift for my niece in the Philippines. 
+      <br>So far no burned pixels or power issues detected. Will evaluate better when my niece uses it. Unit was delivered well packaged, 
+      <br>and on time. Hats off for that.Laptop looked like new. Set up was easy. I’m very happy with this purchase
+      </p>
+
+</div>
+  
+  <footer>
+  </footer>
+  </body>
+</html>
