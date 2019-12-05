@@ -236,6 +236,8 @@ Sets up the firebase configuration.
 
           var selection1 = document.getElementById("itemform").value;
 
+          console.log(selection1);
+
           var selection2 = document.getElementById("itemform2").value;
 
           var selection3 = document.getElementById("itemform3").value;
@@ -333,9 +335,9 @@ Sets up the firebase configuration.
         
          firebase.auth().onAuthStateChanged(function (user) {
 
-          var user1 = db.collection('users').doc("MZIDuvYxKhh0K0SfzVbWhkF2vXT2");
+          var user1 = db.collection('users').doc(user.uid);
 
-                user1.update({
+                user1.set({
                     
                     DevicePreference: device,
 

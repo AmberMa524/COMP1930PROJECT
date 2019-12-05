@@ -144,16 +144,33 @@
   </div>
 </div>
     
-          
-    
+       <script>
+       
+       function createUser() {
 
-    
-  
+firebase.auth().onAuthStateChanged(function(user){
 
- 
-  
-  
-        
+db.collection("users").doc(user.uid).set(
+  {
+
+"name": user.displayName,
+"email": user.email,
+
+  })
+
+
+});
+
+
+
+       }
+       
+       
+       </script>   
+
+       createUser();
+
+       console.log("User is:" + user.uid);
 
   </body>
 
