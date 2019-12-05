@@ -55,16 +55,15 @@
     firebase.initializeApp(firebaseConfig);
     // firebase.analytics();
     var db = firebase.firestore();
-
   </script>
+
 
 </head>
 
 <body>
-  <header>
-
+  <header id="myHeader">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="home.html">TechAssist</a>
+      <a class="navbar-brand" href="#">TechAssist</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -76,45 +75,38 @@
             <a class="nav-link" href="home.html"><button type="button" class="btn btn-primary btn-lg">Home</button><span
                 class="sr-only">(current)</span></a>
           </li>
-
           <li class="nav-item">
             <a class="nav-link" href="questionnaire.html"><button type="button" class="btn btn-primary btn-lg">Let us
                 help you</button></a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
     </nav>
 
+    <h4> Tablets </h4>
+    <button onclick="next()" id="comparing" type="button" class="btn btn-outline-success">Go to comparing
+      Screen</button>
   </header>
-
-  <h4> Tablets </h4>
   <ul id="listed">
 
   </ul>
 
 
 
+
   <script>
-    db.collection("Tablets").get().then(function (querySnapshot) {
+    window.compared = new Array();
+    db.collection("tablets").get().then(function (querySnapshot) {
       var x = 1;
 
       querySnapshot.forEach(function (doc) {
 
         $(document).ready(function () {
+          var c_con = doc.data().model;
 
-          let priceValue = doc.data().price;
+          var d_con = doc.data().image;
 
-          let nameValue = doc.data().name;
-
-          let imageValue = doc.data().image;
-
-          let companyValue = doc.data().company;
-
-          let linkValue = doc.data().link;
+          var f_con = doc.data().price;
 
           var y = "list" + x;
 
@@ -134,53 +126,93 @@
 
           console.log(b);
           $(a_id).append(b);
-          var c = '<p class="card-text" id="' + y + 'model">' + nameValue + '</p>';
+          var c = '<p class="card-text" id="' + y + 'model">' + c_con + '</p>';
           var c_id = '#' + y + 'cardp1';
 
           console.log(c);
-          $(b_id).append(c);//b.c
+          $(b_id).append(c); //b.c
 
-          var d = '<img id = "' + y + 'img" src="' + imageValue + '"/>';
+          var d = '<img id = "' + y + 'img" src="' + d_con + '"/>';
           var d_id = '#' + y + 'img';
           console.log("image............" + d_id);
           console.log(d);
-          $(a_id).append(d);//a.d
+          $(a_id).append(d); //a.d
 
           var e = '<div class="card-body" id="' + y + 'desdiv2">';
           var e_id = '#' + y + 'desdiv2';
 
           console.log(e);
-          $(a_id).append(e);//a.e
+          $(a_id).append(e); //a.e
 
-          var f = '<p class="card-text" id="' + y + 'price">' + priceValue + '</p>';
+          var f = '<p class="card-text" id="' + y + 'price">' + f_con + '</p>';
           var f_id = '#' + y + 'cardp2';
 
           console.log(f);
           $(e_id).append(f);
 
-          var g = '<a href="' + linkValue + '"><button> See Page </button></a>';
-          var g_id = '#' + y + 'seeMore';
+          var dolo = doc.id;
 
-          console.log(g);
-          $(e_id).append(g);
+          var compare = '<button  id="' + y + 'comare" type="button" value = ' + dolo +
+            ' class="btn btn-success" onclick = "compareto(this.value)" >Add to Compare</button>';
+          var compare_id = '#' + y + 'comare';
+
+          var rev = '<button  id="' + y + 'rev" type="button" class="btn btn-success">Review</button>';
+          var compare_id = '#' + y + 'rev';
+
+
+
+          $(e_id).append(compare);
+          $(e_id).append(rev);
 
           console.log("happy.......................");
           x++;
 
-          var imagedim = { "width": "200px", "height": "100px" };
+          var imagedim = {
+            "width": "200px",
+            "height": "100px"
+          };
           $(d_id).css(imagedim);
 
-          var liststyle = { "list-style": "none", "margin": "0", "padding": "0" };
+          var liststyle = {
+            "list-style": "none",
+            "margin": "0",
+            "padding": "0",
+            "max-width": "80%"
+          };
           $("#listed").css(liststyle);
 
-          var listpadding = { "margin": "5px" };
+          var listpadding = {
+            "margin": "5px"
+          };
           $(".ani").css(listpadding);
 
+          var hor = {
+            "max-with": "40px",
+            "margin": "5px"
+          };
+          $(compare_id).css(hor);
 
         })
       });
     });
 
+
+    function compareto(itemid) {
+
+      var agla = itemid;
+      window.compared.push(itemid);
+
+      console.log(window.compared);
+
+    }
+
+    function next(itemid) {
+      var l = "tablets";
+
+      localStorage.setItem("pichla", JSON.stringify(window.compared));
+      localStorage.setItem("coll", l);
+      window.open("compare.html");
+    }
   </script>
 
 
