@@ -4,38 +4,38 @@
 
 <head>
 
-    <title> TEMP NAME </title>
+  <title> TEMP NAME </title>
 
-    <meta charset="uf-8">
+  <meta charset="uf-8">
 
-    <meta name="comp1930 boilerplate code" content="my bcit project">
-    <meta name="author" content="BCIT">
+  <meta name="comp1930 boilerplate code" content="my bcit project">
+  <meta name="author" content="BCIT">
 
-    <!-- Bootstrap for Mobile-first -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
+  <!-- Bootstrap for Mobile-first -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
+  <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.4.0/firebase-analytics.js"></script>
 
-    <!-- Add Firebase products that you want to use -->
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
-    <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-    <script src="dataManagement.js"></script>
-
-
-    <script>
+  <!-- Add Firebase products that you want to use -->
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+  <script src="dataManagement.js"></script>
 
 
+  <script>
 
-    </script>
+
+
+  </script>
 
 
 </head>
@@ -43,21 +43,24 @@
 <body>
 
   <header>
-  
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="home.html">TechAssist</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-    
+
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="home.html"><button type="button" class="btn btn-primary btn-lg">Home</button><span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="home.html"><button type="button" class="btn btn-primary btn-lg">Home</button><span
+                class="sr-only">(current)</span></a>
           </li>
-    
+
           <li class="nav-item">
-            <a class="nav-link" href="questionnaire.html"><button type="button" class="btn btn-primary btn-lg">Let us help you</button></a>
+            <a class="nav-link" href="questionnaire.html"><button type="button" class="btn btn-primary btn-lg">Let us
+                help you</button></a>
           </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -66,17 +69,17 @@
         </form>
       </div>
     </nav>
-      
-      </header>
 
-    <div id="welcome" align="center" padding-top="50px">
+  </header>
 
-        <div id="firebaseui-auth-container"></div>
+  <div id="welcome" align="center" padding-top="50px">
 
-        <h2><b>User Recommendation Questionnaire</b></h2>
+    <div id="firebaseui-auth-container"></div>
 
-    </div>
-<!--
+    <h2><b>User Recommendation Questionnaire</b></h2>
+
+  </div>
+  <!--
     <h2>Database tester: <span id="test1"> test </span></h2>
 
 
@@ -106,253 +109,258 @@
     </form>
 -->
 
-    <h3> What is your budget? </h3>
+  <h3> What is your budget? </h3>
 
-    <div class="form-check1" id="itemform">
-      <input class="form-check-input1" type="radio" name="exampleRadios" id="exampleRadios1" value="Laptop">
-      <label class="form-check-label1" for="exampleRadios1">
-        Laptop
-      </label>
-    </div>
-    <div class="form-check1">
-      <input class="form-check-input1" type="radio" name="exampleRadios" id="exampleRadios3" value="Tablet">
-      <label class="form-check-label1" for="exampleRadios3">
-        Tablet
-      </label>
-    </div>
-    <div class="form-check1">
-      <input class="form-check-input1" type="radio" name="exampleRadios" id="exampleRadios2" value="Desktop">
-      <label class="form-check-label1" for="exampleRadios2">
-        Desktop
-      </label>
-    </div>
+  <div class="form-check1" id="itemform">
+    <input class="form-check-input1" type="radio" name="exampleRadios" id="exampleRadios1" value="Laptop">
+    <label class="form-check-label1" for="exampleRadios1">
+      Laptop
+    </label>
+  </div>
+  <div class="form-check1">
+    <input class="form-check-input1" type="radio" name="exampleRadios" id="exampleRadios3" value="Tablet">
+    <label class="form-check-label1" for="exampleRadios3">
+      Tablet
+    </label>
+  </div>
+  <div class="form-check1">
+    <input class="form-check-input1" type="radio" name="exampleRadios" id="exampleRadios2" value="Desktop">
+    <label class="form-check-label1" for="exampleRadios2">
+      Desktop
+    </label>
+  </div>
 
-    <h3> What is your budget? </h3>
+  <h3> What is your budget? </h3>
 
-    <div class="form-check2" id="itemform2">
-      <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios4" value="Under $80">
-      <label class="form-check-label2" for="exampleRadios4">
-        Under $80
-      </label>
-    </div>
-    <div class="form-check2">
-      <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios5" value="$100 - $150">
-      <label class="form-check-label2" for="exampleRadios5">
-        $100 - $150
-      </label>
-    </div>
-    <div class="form-check2">
-      <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios6" value="$150 - $200">
-      <label class="form-check-label2" for="exampleRadios6">
-        $150 - $200
-      </label>
-    </div>
-    <div class="form-check2">
-      <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios7" value="$200 - $250">
-      <label class="form-check-label2" for="exampleRadios7">
-            $200 - $250
-      </label>
-      </div>
-      <div class="form-check2">
-          <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios8" value="$250 - $300">
-          <label class="form-check-label2" for="exampleRadios8">
-                $250 - $300
-      </label>
-      </div>
-      <div class="form-check2">
-          <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios9" value="Over $300">
-          <label class="form-check-label2" for="exampleRadios9">
-                Over $300
-          </label>
-       </div>
+  <div class="form-check2" id="itemform2">
+    <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios4" value="Under $80">
+    <label class="form-check-label2" for="exampleRadios4">
+      Under $80
+    </label>
+  </div>
+  <div class="form-check2">
+    <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios5" value="$100 - $150">
+    <label class="form-check-label2" for="exampleRadios5">
+      $100 - $150
+    </label>
+  </div>
+  <div class="form-check2">
+    <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios6" value="$150 - $200">
+    <label class="form-check-label2" for="exampleRadios6">
+      $150 - $200
+    </label>
+  </div>
+  <div class="form-check2">
+    <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios7" value="$200 - $250">
+    <label class="form-check-label2" for="exampleRadios7">
+      $200 - $250
+    </label>
+  </div>
+  <div class="form-check2">
+    <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios8" value="$250 - $300">
+    <label class="form-check-label2" for="exampleRadios8">
+      $250 - $300
+    </label>
+  </div>
+  <div class="form-check2">
+    <input class="form-check-input2" type="radio" name="exampleRadios2" id="exampleRadios9" value="Over $300">
+    <label class="form-check-label2" for="exampleRadios9">
+      Over $300
+    </label>
+  </div>
 
-    <h3> What is your brand preference? </h3>
+  <h3> What is your brand preference? </h3>
 
-    <div class="form-check3" id="itemform3">
-      <input class="form-check-input3" type="radio" name="exampleRadios3" id="exampleRadios10" value="Apple">
-      <label class="form-check-label3" for="exampleRadios10">
-        Apple
-      </label>
-    </div>
-    <div class="form-check3">
-      <input class="form-check-input3" type="radio" name="exampleRadios3" id="exampleRadios11" value="Android">
-      <label class="form-check-label3" for="exampleRadios11">
-        Android
-      </label>
-    </div>
-    <div class="form-check3">
-      <input class="form-check-input3" type="radio" name="exampleRadios3" id="exampleRadios12" value="Microsoft">
-      <label class="form-check-label3" for="exampleRadios12">
-        Microsoft
-      </label>
-    </div>
-  
-    <div class="form-check3">
-          <input class="form-check-input3" type="radio" name="exampleRadios3" id="exampleRadios13" value="Other">
-          <label class="form-check-label3" for="exampleRadios13">
-            Other
-          </label>
-        </div>
-  
-    <div class="col-sm-10">
-      <button type="submit" class="btn btn-primary" id="button1" href="home.html">Submit</button>
-    </div>
+  <div class="form-check3" id="itemform3">
+    <input class="form-check-input3" type="radio" name="exampleRadios3" id="exampleRadios10" value="Apple">
+    <label class="form-check-label3" for="exampleRadios10">
+      Apple
+    </label>
+  </div>
+  <div class="form-check3">
+    <input class="form-check-input3" type="radio" name="exampleRadios3" id="exampleRadios11" value="Android">
+    <label class="form-check-label3" for="exampleRadios11">
+      Android
+    </label>
+  </div>
+  <div class="form-check3">
+    <input class="form-check-input3" type="radio" name="exampleRadios3" id="exampleRadios12" value="Microsoft">
+    <label class="form-check-label3" for="exampleRadios12">
+      Microsoft
+    </label>
+  </div>
 
-    <footer>
+  <div class="form-check3">
+    <input class="form-check-input3" type="radio" name="exampleRadios3" id="exampleRadios13" value="Other">
+    <label class="form-check-label3" for="exampleRadios13">
+      Other
+    </label>
+  </div>
 
+  <div class="col-sm-10">
+    <button type="submit" class="btn btn-primary" id="button1" href="home.html">Submit</button>
+  </div>
 
-    </footer>
+  <footer>
 
 
+  </footer>
 
 
-    <!--
+
+
+  <!--
 
 Sets up the firebase configuration.
 
 -->
-    <script>
-              var firebaseConfig = {
-              apiKey: "AIzaSyCWFoAHHXig43bLV6OG367BqhOPBlqrh4Q",
-              authDomain: "oct31-72990.firebaseapp.com",
-              databaseURL: "https://oct31-72990.firebaseio.com",
-              projectId: "oct31-72990",
-              storageBucket: "oct31-72990.appspot.com",
-              messagingSenderId: "617005703861",
-              appId: "1:617005703861:web:fdb1920a07d1b6338854fc",
-              measurementId: "G-6T24W0NH6V"
-          
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
-        firebase.analytics();
-        var db = firebase.firestore();
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyCWFoAHHXig43bLV6OG367BqhOPBlqrh4Q",
+      authDomain: "oct31-72990.firebaseapp.com",
+      databaseURL: "https://oct31-72990.firebaseio.com",
+      projectId: "oct31-72990",
+      storageBucket: "oct31-72990.appspot.com",
+      messagingSenderId: "617005703861",
+      appId: "1:617005703861:web:fdb1920a07d1b6338854fc",
+      measurementId: "G-6T24W0NH6V"
 
-        document.getElementById("button1").addEventListener("click", userData);
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    var db = firebase.firestore();
 
-        function userData(e){
+    document.getElementById("button1").addEventListener("click", userData);
 
-          e.preventDefault();
+    function userData(e) {
 
-          var selection1 = document.getElementById("itemform").value;
+      e.preventDefault();
+
+      var selection1 = document.getElementById("itemform").value;
+      console.log(selection1);
+      var selection2 = document.getElementById("itemform2").value;
+
+      var selection3 = document.getElementById("itemform3").value;
 
           console.log(selection1);
 
           var selection2 = document.getElementById("itemform2").value;
 
-          var selection3 = document.getElementById("itemform3").value;
+      var budget;
 
-          var device;
+      var brand;
 
-          var budget;
+      var user1 = localStorage.getItem("user123");;
+      console.log(user1);
+      if (document.getElementById("exampleRadios1").checked) {
 
-          var brand;
+        device = document.getElementById("exampleRadios1").value;
 
-          var user1 = localStorage.getItem("user123");;
+      } else if (document.getElementById("exampleRadios2").checked) {
 
-          if(document.getElementById("exampleRadios1").checked){
+        device = document.getElementById("exampleRadios2").value;
 
-           device = document.getElementById("exampleRadios1").value;
+      } else if (document.getElementById("exampleRadios3").checked) {
 
-          } else if(document.getElementById("exampleRadios2").checked){
+        device = document.getElementById("exampleRadios3").value;
 
-            device = document.getElementById("exampleRadios2").value;
-            
-          } else if(document.getElementById("exampleRadios3").checked){
+      } else {
 
-            device = document.getElementById("exampleRadios3").value;
+        device = null;
 
-          } else{
+      }
 
-            device = null;
+      if (document.getElementById("exampleRadios4").checked) {
 
-          }
+        budget = document.getElementById("exampleRadios4").value;
 
-          if(document.getElementById("exampleRadios4").checked){
+      } else if (document.getElementById("exampleRadios5").checked) {
 
-              budget = document.getElementById("exampleRadios4").value;
-
-          } else if(document.getElementById("exampleRadios5").checked){
-
-            budget = document.getElementById("exampleRadios5").value;
+        budget = document.getElementById("exampleRadios5").value;
 
 
-          } else if(document.getElementById("exampleRadios6").checked){
+      } else if (document.getElementById("exampleRadios6").checked) {
 
 
-            budget = document.getElementById("exampleRadios6").value;
+        budget = document.getElementById("exampleRadios6").value;
 
 
-          } else if(document.getElementById("exampleRadios7").checked){
+      } else if (document.getElementById("exampleRadios7").checked) {
 
 
-            budget = document.getElementById("exampleRadios7").value;
-
-            
-          } else if(document.getElementById("exampleRadios8").checked){
+        budget = document.getElementById("exampleRadios7").value;
 
 
-            budget = document.getElementById("exampleRadios8").value;
-
-            
-         } else if(document.getElementById("exampleRadios9").checked){
-
-          budget = document.getElementById("exampleRadios9").value;
-
-         } else{
-
-           budget = null;
-
-         }
+      } else if (document.getElementById("exampleRadios8").checked) {
 
 
-         if(document.getElementById("exampleRadios10").checked){
-
-          brand = document.getElementById("exampleRadios10").value;
-
-         } else if(document.getElementById("exampleRadios11").checked){
-
-          brand = document.getElementById("exampleRadios11").value;
+        budget = document.getElementById("exampleRadios8").value;
 
 
-         } else if(document.getElementById("exampleRadios12").checked){
+      } else if (document.getElementById("exampleRadios9").checked) {
 
-          brand = document.getElementById("exampleRadios12").value;
+        budget = document.getElementById("exampleRadios9").value;
+
+      } else {
+
+        budget = null;
+
+      }
 
 
-         } else if(document.getElementById("exampleRadios13").checked){
+      if (document.getElementById("exampleRadios10").checked) {
 
-         
+        brand = document.getElementById("exampleRadios10").value;
+
+      } else if (document.getElementById("exampleRadios11").checked) {
+
+        brand = document.getElementById("exampleRadios11").value;
+
+
+      } else if (document.getElementById("exampleRadios12").checked) {
+
+        brand = document.getElementById("exampleRadios12").value;
+
+
+      } else if (document.getElementById("exampleRadios13").checked) {
+
+
         brand = document.getElementById("exampleRadios13").value;
 
 
-         } else {
+      } else {
 
 
         brand = null;
 
-         }
-        
-         firebase.auth().onAuthStateChanged(function (user1) {
+      }
 
+
+<<<<<<< HEAD
           var user1 = db.collection('users').doc(user.uid);
 
                 user1.set({
                     
                     DevicePreference: device,
+=======
 
-                    CurrentBudget: budget,
-
-                    FavouriteBrand: brand
-
-
-                }) .then(function(){
-
-                 pageChange();
+      db.collection('users').doc(user1).set({
+>>>>>>> 02b56a5ab51fa38b65628a9a9065a400fd88ce8c
 
 
-                });
-            });
+
+        DevicePreference: device,
+
+        CurrentBudget: budget,
+
+        FavouriteBrand: brand
+
+      })
+      .then(function(){
+        cosnsole.log("Written");
+      });
+
 
       saveData(budget, device, brand);
 
@@ -361,53 +369,52 @@ Sets up the firebase configuration.
       console.log("Budget Changed to " + budget);
 
       console.log("Brand Preference Changed to " + brand);
-    
+
     }
 
 
 
-      
 
 
 
-        /**
 
-        db.collection("Users").add({
-            email: "hello123@hotmail.com",
-            name: "Susan"
+    /**
+
+    db.collection("Users").add({
+        email: "hello123@hotmail.com",
+        name: "Susan"
+    })
+        .then(function (docRef) {
+            console.log("Document written with ID: ", docRef.id);
         })
-            .then(function (docRef) {
-                console.log("Document written with ID: ", docRef.id);
+        .catch(function (error) {
+            console.error("Error adding document: ", error);
+        });
+
+    // Fucntion that creates a new document in the users collection
+
+    */
+
+    /**
+
+    function testAddress(e) {
+            e.preventDefault();
+            var email1 = document.getElementById("inputEmail3").value;
+            var name1 = document.getElementById("inputName3").value;
+                db.collection("Users").doc().set({
+
+                        Email: email1,
+                        Name: name1
+
+            }).then(function() {
+                console.log("Sent" + email1);
+                console.log("Sent" + name1);
             })
-            .catch(function (error) {
-                console.error("Error adding document: ", error);
-            });
 
-        // Fucntion that creates a new document in the users collection
+    }
 
-        */
-
-        /**
-
-        function testAddress(e) {
-                e.preventDefault();
-                var email1 = document.getElementById("inputEmail3").value;
-                var name1 = document.getElementById("inputName3").value;
-                    db.collection("Users").doc().set({
-
-                            Email: email1,
-                            Name: name1
-
-                }).then(function() {
-                    console.log("Sent" + email1);
-                    console.log("Sent" + name1);
-                })
-
-        }
-
-        */
-
-    </script>
+    */
+  </script>
 
 
 </body>
