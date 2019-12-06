@@ -28,7 +28,7 @@
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.2.2/firebase-firestore.js"></script>
   <script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
-  <script src="dataManagement.js"></script>
+  <script src="JS/dataManagement.js"></script>
 
 
   <script>
@@ -148,6 +148,9 @@
 
     var criteriaC;
 
+    /** If the user picks a certain device type
+    the criteria will change to that device. */
+
     if (criteriaA1 == deviceChoice) {
 
       criteriaA = criteriaA1;
@@ -165,6 +168,10 @@
       criteriaA = null;
 
     }
+
+    /** If the user picks a certain budget
+    the criteria will change to whatever is lower or
+    equal to that budget number. */
 
     if (criteriaB1 = budgetChoice) {
 
@@ -196,6 +203,8 @@
 
     }
 
+    /** If the user picks a certain brand
+    the criteria will change to that brand. */
 
     if (criteriaC1 = brandChoice) {
 
@@ -223,38 +232,52 @@
 
     var listOfObjects = [];
 
-    if(criteriaA == criteriaA1){
+    /** If laptops were chosen by the user
+    then this function will start. */
 
-    db.collection("Laptop").get().then(function (querySnapshot) {
+    if (criteriaA == criteriaA1) {
 
-      querySnapshot.forEach(function (doc) {
+      db.collection("Laptop").get().then(function (querySnapshot) {
 
-        var itemName = doc.data().name;
+        querySnapshot.forEach(function (doc) {
 
-        var itemImage = doc.data().image;
+              /** Creates an item based on the
+              device found in the collection
+              with the following attributes. */
 
-        var itemPrice = doc.data().price;
+          var itemName = doc.data().name;
 
-        var itemCompany = doc.data().company;
+          var itemImage = doc.data().image;
 
-        var itemLink = doc.data().link;
+          var itemPrice = doc.data().price;
 
-        var itemIncrement1 = 0;
+          var itemCompany = doc.data().company;
+
+          var itemLink = doc.data().link;
+
+          var itemIncrement1 = 0;
 
 
-        if (itemCompany == criteriaC) {
+          /** If it's attributes matches the user's criteria
+          it's item increment attribute will increase by one,
+          upping its' precedence on the resulting list. */
 
-          itemIncrement1++;
 
-        } else if (criteriaC == criteriaC4) {
+          if (itemCompany == criteriaC) {
 
-          if (itemCompany != criteriaC1) {
+            itemIncrement1++;
 
-            if (itemCompany != criteriaC2) {
+          } else if (criteriaC == criteriaC4) {
 
-              if (itemCompany != criteriaC3) {
+            if (itemCompany != criteriaC1) {
 
-                itemIncrement1++;
+              if (itemCompany != criteriaC2) {
+
+                if (itemCompany != criteriaC3) {
+
+                  itemIncrement1++;
+
+                }
 
               }
 
@@ -262,418 +285,466 @@
 
           }
 
+          if (itemPrice < criteriaB) {
+
+            itemIncrement++;
+
+          }
+
+          /** Creates the item as an object that is
+          added to the list of objects shown in the
+          DOM. */
+
+          var newObject = { name: itemName, image: itemImage, price: itemPrice, company: itemCompany, link: itemLink, incrementation: itemIncrement1 };
+
+          console.log(newObject);
+
+          listOfObjects.push(newObject);
+
+          console.log(newObject);
+        });
+
+      }).then(function () {
+
+        /** Sorts the devices based on their incrementations. */
+
+        listOfObjects.sort((a, b) => (a.incrementation > b.incrementation) ? -1 : 1);
+
+        console.log(listOfObjects);
+
+      }).then(function () {
+
+        /** Goes through the list of devices
+        and places them into the DOM. */
+
+        for (let i = 0; i < listOfObjects.length; i++) {
+
+          var x = 1;
+
+          $(document).ready(function () {
+
+            console.log(listOfObjects[i]);
+
+            let priceValue = (listOfObjects[i]).price;
+
+            let nameValue = (listOfObjects[i]).name;
+
+            let imageValue = (listOfObjects[i]).image;
+
+            let companyValue = (listOfObjects[i]).company;
+
+            let linkValue = (listOfObjects[i]).link;
+
+            var y = "list" + x;
+
+
+            var z = '<li class = "ani" id ="' + y + '"></li>';
+            var z_id = '#' + y;
+
+
+            $("#listed").append(z);
+            var a = '<div class="card" id="' + y + 'carddiv">';
+            var a_id = '#' + y + 'carddiv';
+
+            console.log(a);
+            $(z_id).append(a); //y.a
+            var b = '<div class="card-body" id="' + y + 'desdiv1">';
+            var b_id = '#' + y + 'desdiv1';
+
+            console.log(b);
+            $(a_id).append(b);
+            var c = '<p class="card-text" id="' + y + 'model">' + nameValue + '</p>';
+            var c_id = '#' + y + 'cardp1';
+
+            console.log(c);
+            $(b_id).append(c);//b.c
+
+            var d = '<img id = "' + y + 'img" src="' + imageValue + '"/>';
+            var d_id = '#' + y + 'img';
+            console.log("image............" + d_id);
+            console.log(d);
+            $(a_id).append(d);//a.d
+
+            var e = '<div class="card-body" id="' + y + 'desdiv2">';
+            var e_id = '#' + y + 'desdiv2';
+
+            console.log(e);
+            $(a_id).append(e);//a.e
+
+            var f = '<p class="card-text" id="' + y + 'price">' + priceValue + '</p>';
+            var f_id = '#' + y + 'cardp2';
+
+            console.log(f);
+            $(e_id).append(f);
+
+            var g = '<a href="' + linkValue + '"><button> See Page </button></a>';
+            var g_id = '#' + y + 'seeMore';
+
+            console.log(g);
+            $(e_id).append(g);
+
+            console.log("happy.......................");
+            x++;
+
+            var imagedim = { "width": "200px", "height": "100px" };
+            $(d_id).css(imagedim);
+
+            var liststyle = { "list-style": "none", "margin": "0", "padding": "0" };
+            $("#listed").css(liststyle);
+
+            var listpadding = { "margin": "5px" };
+            $(".ani").css(listpadding);
+
+
+          })
+
+
         }
 
-        if(itemPrice < criteriaB){
-
-         itemIncrement++;
-
-        }
-
-        var newObject = { name: itemName, image: itemImage, price: itemPrice, company: itemCompany, link: itemLink, incrementation: itemIncrement1 };
-
-        console.log(newObject);
-
-        listOfObjects.push(newObject);
-
-        console.log(newObject);
       });
 
-    }).then(function () {
+    } else if (criteriaA == criteriaA2) {
 
-      listOfObjects.sort((a, b) => (a.incrementation > b.incrementation) ? -1 : 1);
+      /** If tablets were chosen by the user
+   then this function will start. */
 
-      console.log(listOfObjects);
+      db.collection("Tablets").get().then(function (querySnapshot) {
 
-    }).then(function () {
+        querySnapshot.forEach(function (doc) {
 
-      for (let i = 0; i < listOfObjects.length; i++) {
+              /** Creates an item based on the
+              device found in the collection
+              with the following attributes. */
 
-        var x = 1;
+          var itemName = doc.data().name;
 
-        $(document).ready(function () {
+          var itemImage = doc.data().image;
 
-          console.log(listOfObjects[i]);
+          var itemPrice = doc.data().price;
 
-          let priceValue = (listOfObjects[i]).price;
+          var itemCompany = doc.data().company;
 
-          let nameValue = (listOfObjects[i]).name;
+          var itemLink = doc.data().link;
 
-          let imageValue = (listOfObjects[i]).image;
+          var itemIncrement1 = 0;
 
-          let companyValue = (listOfObjects[i]).company;
-
-          let linkValue = (listOfObjects[i]).link;
-
-          var y = "list" + x;
-
-
-          var z = '<li class = "ani" id ="' + y + '"></li>';
-          var z_id = '#' + y;
+          /** If it's attributes matches the user's criteria
+          it's item increment attribute will increase by one,
+          upping its' precedence on the resulting list. */
 
 
-          $("#listed").append(z);
-          var a = '<div class="card" id="' + y + 'carddiv">';
-          var a_id = '#' + y + 'carddiv';
-
-          console.log(a);
-          $(z_id).append(a); //y.a
-          var b = '<div class="card-body" id="' + y + 'desdiv1">';
-          var b_id = '#' + y + 'desdiv1';
-
-          console.log(b);
-          $(a_id).append(b);
-          var c = '<p class="card-text" id="' + y + 'model">' + nameValue + '</p>';
-          var c_id = '#' + y + 'cardp1';
-
-          console.log(c);
-          $(b_id).append(c);//b.c
-
-          var d = '<img id = "' + y + 'img" src="' + imageValue + '"/>';
-          var d_id = '#' + y + 'img';
-          console.log("image............" + d_id);
-          console.log(d);
-          $(a_id).append(d);//a.d
-
-          var e = '<div class="card-body" id="' + y + 'desdiv2">';
-          var e_id = '#' + y + 'desdiv2';
-
-          console.log(e);
-          $(a_id).append(e);//a.e
-
-          var f = '<p class="card-text" id="' + y + 'price">' + priceValue + '</p>';
-          var f_id = '#' + y + 'cardp2';
-
-          console.log(f);
-          $(e_id).append(f);
-
-          var g = '<a href="' + linkValue + '"><button> See Page </button></a>';
-          var g_id = '#' + y + 'seeMore';
-
-          console.log(g);
-          $(e_id).append(g);
-
-          console.log("happy.......................");
-          x++;
-
-          var imagedim = { "width": "200px", "height": "100px" };
-          $(d_id).css(imagedim);
-
-          var liststyle = { "list-style": "none", "margin": "0", "padding": "0" };
-          $("#listed").css(liststyle);
-
-          var listpadding = { "margin": "5px" };
-          $(".ani").css(listpadding);
-
-
-        })
-
-
-      }
-
-    });
-
- } else if(criteriaA == criteriaA2){
-
-db.collection("Tablets").get().then(function (querySnapshot) {
-
-  querySnapshot.forEach(function (doc) {
-
-    var itemName = doc.data().name;
-
-    var itemImage = doc.data().image;
-
-    var itemPrice = doc.data().price;
-
-    var itemCompany = doc.data().company;
-
-    var itemLink = doc.data().link;
-
-    var itemIncrement1 = 0;
-
-
-    if (itemCompany == criteriaC) {
-
-      itemIncrement1++;
-
-    } else if (criteriaC == criteriaC4) {
-
-      if (itemCompany != criteriaC1) {
-
-        if (itemCompany != criteriaC2) {
-
-          if (itemCompany != criteriaC3) {
+          if (itemCompany == criteriaC) {
 
             itemIncrement1++;
 
+          } else if (criteriaC == criteriaC4) {
+
+            if (itemCompany != criteriaC1) {
+
+              if (itemCompany != criteriaC2) {
+
+                if (itemCompany != criteriaC3) {
+
+                  itemIncrement1++;
+
+                }
+
+              }
+
+            }
+
           }
+
+          if (itemPrice < criteriaB) {
+
+            itemIncrement++;
+
+          }
+
+          /** Creates the item as an object that is
+          added to the list of objects shown in the
+          DOM. */
+
+          var newObject = { name: itemName, image: itemImage, price: itemPrice, company: itemCompany, link: itemLink, incrementation: itemIncrement1 };
+
+          console.log(newObject);
+
+          listOfObjects.push(newObject);
+
+          console.log(newObject);
+        });
+
+      }).then(function () {
+
+        /** Sorts the devices based on their incrementations. */
+
+        listOfObjects.sort((a, b) => (a.incrementation > b.incrementation) ? -1 : 1);
+
+        console.log(listOfObjects);
+
+      }).then(function () {
+
+        /** Goes through the list of devices
+        and places them into the DOM. */
+
+        for (let i = 0; i < listOfObjects.length; i++) {
+
+          var x = 1;
+
+          $(document).ready(function () {
+
+            console.log(listOfObjects[i]);
+
+            let priceValue = (listOfObjects[i]).price;
+
+            let nameValue = (listOfObjects[i]).name;
+
+            let imageValue = (listOfObjects[i]).image;
+
+            let companyValue = (listOfObjects[i]).company;
+
+            let linkValue = (listOfObjects[i]).link;
+
+            var y = "list" + x;
+
+
+            var z = '<li class = "ani" id ="' + y + '"></li>';
+            var z_id = '#' + y;
+
+
+            $("#listed").append(z);
+            var a = '<div class="card" id="' + y + 'carddiv">';
+            var a_id = '#' + y + 'carddiv';
+
+            console.log(a);
+            $(z_id).append(a); //y.a
+            var b = '<div class="card-body" id="' + y + 'desdiv1">';
+            var b_id = '#' + y + 'desdiv1';
+
+            console.log(b);
+            $(a_id).append(b);
+            var c = '<p class="card-text" id="' + y + 'model">' + nameValue + '</p>';
+            var c_id = '#' + y + 'cardp1';
+
+            console.log(c);
+            $(b_id).append(c);//b.c
+
+            var d = '<img id = "' + y + 'img" src="' + imageValue + '"/>';
+            var d_id = '#' + y + 'img';
+            console.log("image............" + d_id);
+            console.log(d);
+            $(a_id).append(d);//a.d
+
+            var e = '<div class="card-body" id="' + y + 'desdiv2">';
+            var e_id = '#' + y + 'desdiv2';
+
+            console.log(e);
+            $(a_id).append(e);//a.e
+
+            var f = '<p class="card-text" id="' + y + 'price">' + priceValue + '</p>';
+            var f_id = '#' + y + 'cardp2';
+
+            console.log(f);
+            $(e_id).append(f);
+
+            var g = '<a href="' + linkValue + '"><button> See Page </button></a>';
+            var g_id = '#' + y + 'seeMore';
+
+            console.log(g);
+            $(e_id).append(g);
+
+            console.log("happy.......................");
+            x++;
+
+            var imagedim = { "width": "200px", "height": "100px" };
+            $(d_id).css(imagedim);
+
+            var liststyle = { "list-style": "none", "margin": "0", "padding": "0" };
+            $("#listed").css(liststyle);
+
+            var listpadding = { "margin": "5px" };
+            $(".ani").css(listpadding);
+
+
+          })
+
 
         }
 
-      }
+      });
 
-    }
+    } else if (criteriaA == criteriaA3) {
 
-    if(itemPrice < criteriaB){
+      /** If desktops were chosen by the user
+then this function will start. */
 
-     itemIncrement++;
+      db.collection("Desktops").get().then(function (querySnapshot) {
 
-    }
+        querySnapshot.forEach(function (doc) {
 
-    var newObject = { name: itemName, image: itemImage, price: itemPrice, company: itemCompany, link: itemLink, incrementation: itemIncrement1 };
+              /** Creates an item based on the
+              device found in the collection
+              with the following attributes. */
 
-    console.log(newObject);
+          var itemName = doc.data().name;
 
-    listOfObjects.push(newObject);
+          var itemImage = doc.data().image;
 
-    console.log(newObject);
-  });
+          var itemPrice = doc.data().price;
 
-}).then(function () {
+          var itemCompany = doc.data().company;
 
-  listOfObjects.sort((a, b) => (a.incrementation > b.incrementation) ? -1 : 1);
+          var itemLink = doc.data().link;
 
-  console.log(listOfObjects);
-
-}).then(function () {
-
-  for (let i = 0; i < listOfObjects.length; i++) {
-
-    var x = 1;
-
-    $(document).ready(function () {
-
-      console.log(listOfObjects[i]);
-
-      let priceValue = (listOfObjects[i]).price;
-
-      let nameValue = (listOfObjects[i]).name;
-
-      let imageValue = (listOfObjects[i]).image;
-
-      let companyValue = (listOfObjects[i]).company;
-
-      let linkValue = (listOfObjects[i]).link;
-
-      var y = "list" + x;
+          var itemIncrement1 = 0;
 
 
-      var z = '<li class = "ani" id ="' + y + '"></li>';
-      var z_id = '#' + y;
+          /** If it's attributes matches the user's criteria
+          it's item increment attribute will increase by one,
+          upping its' precedence on the resulting list. */
 
 
-      $("#listed").append(z);
-      var a = '<div class="card" id="' + y + 'carddiv">';
-      var a_id = '#' + y + 'carddiv';
-
-      console.log(a);
-      $(z_id).append(a); //y.a
-      var b = '<div class="card-body" id="' + y + 'desdiv1">';
-      var b_id = '#' + y + 'desdiv1';
-
-      console.log(b);
-      $(a_id).append(b);
-      var c = '<p class="card-text" id="' + y + 'model">' + nameValue + '</p>';
-      var c_id = '#' + y + 'cardp1';
-
-      console.log(c);
-      $(b_id).append(c);//b.c
-
-      var d = '<img id = "' + y + 'img" src="' + imageValue + '"/>';
-      var d_id = '#' + y + 'img';
-      console.log("image............" + d_id);
-      console.log(d);
-      $(a_id).append(d);//a.d
-
-      var e = '<div class="card-body" id="' + y + 'desdiv2">';
-      var e_id = '#' + y + 'desdiv2';
-
-      console.log(e);
-      $(a_id).append(e);//a.e
-
-      var f = '<p class="card-text" id="' + y + 'price">' + priceValue + '</p>';
-      var f_id = '#' + y + 'cardp2';
-
-      console.log(f);
-      $(e_id).append(f);
-
-      var g = '<a href="' + linkValue + '"><button> See Page </button></a>';
-      var g_id = '#' + y + 'seeMore';
-
-      console.log(g);
-      $(e_id).append(g);
-
-      console.log("happy.......................");
-      x++;
-
-      var imagedim = { "width": "200px", "height": "100px" };
-      $(d_id).css(imagedim);
-
-      var liststyle = { "list-style": "none", "margin": "0", "padding": "0" };
-      $("#listed").css(liststyle);
-
-      var listpadding = { "margin": "5px" };
-      $(".ani").css(listpadding);
-
-
-    })
-
-
-  }
-
-});
-
-} else if(criteriaA == criteriaA3){
-
-db.collection("Desktops").get().then(function (querySnapshot) {
-
-  querySnapshot.forEach(function (doc) {
-
-    var itemName = doc.data().name;
-
-    var itemImage = doc.data().image;
-
-    var itemPrice = doc.data().price;
-
-    var itemCompany = doc.data().company;
-
-    var itemLink = doc.data().link;
-
-    var itemIncrement1 = 0;
-
-
-    if (itemCompany == criteriaC) {
-
-      itemIncrement1++;
-
-    } else if (criteriaC == criteriaC4) {
-
-      if (itemCompany != criteriaC1) {
-
-        if (itemCompany != criteriaC2) {
-
-          if (itemCompany != criteriaC3) {
+          if (itemCompany == criteriaC) {
 
             itemIncrement1++;
 
+          } else if (criteriaC == criteriaC4) {
+
+            if (itemCompany != criteriaC1) {
+
+              if (itemCompany != criteriaC2) {
+
+                if (itemCompany != criteriaC3) {
+
+                  itemIncrement1++;
+
+                }
+
+              }
+
+            }
+
           }
+
+          if (itemPrice < criteriaB) {
+
+            itemIncrement++;
+
+          }
+
+          /** Creates the item as an object that is
+          added to the list of objects shown in the
+          DOM. */
+
+          var newObject = { name: itemName, image: itemImage, price: itemPrice, company: itemCompany, link: itemLink, incrementation: itemIncrement1 };
+
+          console.log(newObject);
+
+          listOfObjects.push(newObject);
+
+          console.log(newObject);
+        });
+
+      }).then(function () {
+
+        /** Sorts the devices based on their incrementations. */
+
+        listOfObjects.sort((a, b) => (a.incrementation > b.incrementation) ? -1 : 1);
+
+        console.log(listOfObjects);
+
+      }).then(function () {
+
+        /** Goes through the list of devices
+        and places them into the DOM. */
+
+        for (let i = 0; i < listOfObjects.length; i++) {
+
+          var x = 1;
+
+          $(document).ready(function () {
+
+            console.log(listOfObjects[i]);
+
+            let priceValue = (listOfObjects[i]).price;
+
+            let nameValue = (listOfObjects[i]).name;
+
+            let imageValue = (listOfObjects[i]).image;
+
+            let companyValue = (listOfObjects[i]).company;
+
+            let linkValue = (listOfObjects[i]).link;
+
+            var y = "list" + x;
+
+
+            var z = '<li class = "ani" id ="' + y + '"></li>';
+            var z_id = '#' + y;
+
+
+            $("#listed").append(z);
+            var a = '<div class="card" id="' + y + 'carddiv">';
+            var a_id = '#' + y + 'carddiv';
+
+            console.log(a);
+            $(z_id).append(a); //y.a
+            var b = '<div class="card-body" id="' + y + 'desdiv1">';
+            var b_id = '#' + y + 'desdiv1';
+
+            console.log(b);
+            $(a_id).append(b);
+            var c = '<p class="card-text" id="' + y + 'model">' + nameValue + '</p>';
+            var c_id = '#' + y + 'cardp1';
+
+            console.log(c);
+            $(b_id).append(c);//b.c
+
+            var d = '<img id = "' + y + 'img" src="' + imageValue + '"/>';
+            var d_id = '#' + y + 'img';
+            console.log("image............" + d_id);
+            console.log(d);
+            $(a_id).append(d);//a.d
+
+            var e = '<div class="card-body" id="' + y + 'desdiv2">';
+            var e_id = '#' + y + 'desdiv2';
+
+            console.log(e);
+            $(a_id).append(e);//a.e
+
+            var f = '<p class="card-text" id="' + y + 'price">' + priceValue + '</p>';
+            var f_id = '#' + y + 'cardp2';
+
+            console.log(f);
+            $(e_id).append(f);
+
+            var g = '<a href="' + linkValue + '"><button> See Page </button></a>';
+            var g_id = '#' + y + 'seeMore';
+
+            console.log(g);
+            $(e_id).append(g);
+
+            console.log("happy.......................");
+            x++;
+
+            var imagedim = { "width": "200px", "height": "100px" };
+            $(d_id).css(imagedim);
+
+            var liststyle = { "list-style": "none", "margin": "0", "padding": "0" };
+            $("#listed").css(liststyle);
+
+            var listpadding = { "margin": "5px" };
+            $(".ani").css(listpadding);
+
+
+          })
+
 
         }
 
-      }
+      });
 
     }
-
-    if(itemPrice < criteriaB){
-
-     itemIncrement++;
-
-    }
-
-    var newObject = { name: itemName, image: itemImage, price: itemPrice, company: itemCompany, link: itemLink, incrementation: itemIncrement1 };
-
-    console.log(newObject);
-
-    listOfObjects.push(newObject);
-
-    console.log(newObject);
-  });
-
-}).then(function () {
-
-  listOfObjects.sort((a, b) => (a.incrementation > b.incrementation) ? -1 : 1);
-
-  console.log(listOfObjects);
-
-}).then(function () {
-
-  for (let i = 0; i < listOfObjects.length; i++) {
-
-    var x = 1;
-
-    $(document).ready(function () {
-
-      console.log(listOfObjects[i]);
-
-      let priceValue = (listOfObjects[i]).price;
-
-      let nameValue = (listOfObjects[i]).name;
-
-      let imageValue = (listOfObjects[i]).image;
-
-      let companyValue = (listOfObjects[i]).company;
-
-      let linkValue = (listOfObjects[i]).link;
-
-      var y = "list" + x;
-
-
-      var z = '<li class = "ani" id ="' + y + '"></li>';
-      var z_id = '#' + y;
-
-
-      $("#listed").append(z);
-      var a = '<div class="card" id="' + y + 'carddiv">';
-      var a_id = '#' + y + 'carddiv';
-
-      console.log(a);
-      $(z_id).append(a); //y.a
-      var b = '<div class="card-body" id="' + y + 'desdiv1">';
-      var b_id = '#' + y + 'desdiv1';
-
-      console.log(b);
-      $(a_id).append(b);
-      var c = '<p class="card-text" id="' + y + 'model">' + nameValue + '</p>';
-      var c_id = '#' + y + 'cardp1';
-
-      console.log(c);
-      $(b_id).append(c);//b.c
-
-      var d = '<img id = "' + y + 'img" src="' + imageValue + '"/>';
-      var d_id = '#' + y + 'img';
-      console.log("image............" + d_id);
-      console.log(d);
-      $(a_id).append(d);//a.d
-
-      var e = '<div class="card-body" id="' + y + 'desdiv2">';
-      var e_id = '#' + y + 'desdiv2';
-
-      console.log(e);
-      $(a_id).append(e);//a.e
-
-      var f = '<p class="card-text" id="' + y + 'price">' + priceValue + '</p>';
-      var f_id = '#' + y + 'cardp2';
-
-      console.log(f);
-      $(e_id).append(f);
-
-      var g = '<a href="' + linkValue + '"><button> See Page </button></a>';
-      var g_id = '#' + y + 'seeMore';
-
-      console.log(g);
-      $(e_id).append(g);
-
-      console.log("happy.......................");
-      x++;
-
-      var imagedim = { "width": "200px", "height": "100px" };
-      $(d_id).css(imagedim);
-
-      var liststyle = { "list-style": "none", "margin": "0", "padding": "0" };
-      $("#listed").css(liststyle);
-
-      var listpadding = { "margin": "5px" };
-      $(".ani").css(listpadding);
-
-
-    })
-
-
-  }
-
-});
-
-}
 
     /**
 
